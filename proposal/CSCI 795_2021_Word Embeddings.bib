@@ -1,0 +1,120 @@
+
+@article{caliskan_semantics_2017,
+	title = {Semantics derived automatically from language corpora contain human-like biases},
+	volume = {356},
+	issn = {0036-8075, 1095-9203},
+	url = {https://www.sciencemag.org/lookup/doi/10.1126/science.aal4230},
+	doi = {10.1126/science.aal4230},
+	pages = {183--186},
+	number = {6334},
+	journaltitle = {Science},
+	shortjournal = {Science},
+	author = {Caliskan, Aylin and Bryson, Joanna J. and Narayanan, Arvind},
+	urldate = {2021-10-11},
+	date = {2017-04-14},
+	langid = {english},
+}
+
+@article{brunet_understanding_2019,
+	title = {Understanding the Origins of Bias in Word Embeddings},
+	url = {http://arxiv.org/abs/1810.03611},
+	abstract = {Popular word embedding algorithms exhibit stereotypical biases, such as gender bias. The widespread use of these algorithms in machine learning systems can thus amplify stereotypes in important contexts. Although some methods have been developed to mitigate this problem, how word embedding biases arise during training is poorly understood. In this work, we develop a technique to address this question. Given a word embedding, our method reveals how perturbing the training corpus would affect the resulting embedding bias. By tracing the origins of word embedding bias back to the original training documents, one can identify subsets of documents whose removal would most reduce bias. We demonstrate our methodology on Wikipedia and New York Times corpora, and ﬁnd it to be very accurate.},
+	journaltitle = {{arXiv}:1810.03611 [cs, stat]},
+	author = {Brunet, Marc-Etienne and Alkalay-Houlihan, Colleen and Anderson, Ashton and Zemel, Richard},
+	urldate = {2021-10-10},
+	date = {2019-06-07},
+	langid = {english},
+	eprinttype = {arxiv},
+	eprint = {1810.03611},
+	keywords = {Computer Science - Computers and Society, Computer Science - Machine Learning, Statistics - Machine Learning},
+}
+
+@article{gonen_lipstick_2019,
+	title = {Lipstick on a Pig: Debiasing Methods Cover up Systematic Gender Biases in Word Embeddings But do not Remove Them},
+	url = {http://arxiv.org/abs/1903.03862},
+	shorttitle = {Lipstick on a Pig},
+	abstract = {Word embeddings are widely used in {NLP} for a vast range of tasks. It was shown that word embeddings derived from text corpora reﬂect gender biases in society. This phenomenon is pervasive and consistent across different word embedding models, causing serious concern. Several recent works tackle this problem, and propose methods for signiﬁcantly reducing this gender bias in word embeddings, demonstrating convincing results. However, we argue that this removal is superﬁcial. While the bias is indeed substantially reduced according to the provided bias deﬁnition, the actual effect is mostly hiding the bias, not removing it. The gender bias information is still reﬂected in the distances between “gender-neutralized” words in the debiased embeddings, and can be recovered from them. We present a series of experiments to support this claim, for two debiasing methods. We conclude that existing bias removal techniques are insufﬁcient, and should not be trusted for providing gender-neutral modeling.},
+	journaltitle = {{arXiv}:1903.03862 [cs]},
+	author = {Gonen, Hila and Goldberg, Yoav},
+	urldate = {2021-10-11},
+	date = {2019-09-24},
+	langid = {english},
+	eprinttype = {arxiv},
+	eprint = {1903.03862},
+	keywords = {Computer Science - Computation and Language},
+}
+
+@inproceedings{bender_dangers_2021,
+	location = {Virtual Event Canada},
+	title = {On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? 🦜},
+	isbn = {978-1-4503-8309-7},
+	url = {https://dl.acm.org/doi/10.1145/3442188.3445922},
+	doi = {10.1145/3442188.3445922},
+	shorttitle = {On the Dangers of Stochastic Parrots},
+	abstract = {The past 3 years of work in {NLP} have been characterized by the development and deployment of ever larger language models, especially for English. {BERT}, its variants, {GPT}-2/3, and others, most recently Switch-C, have pushed the boundaries of the possible both through architectural innovations and through sheer size. Using these pretrained models and the methodology of fine-tuning them for specific tasks, researchers have extended the state of the art on a wide array of tasks as measured by leaderboards on specific benchmarks for English. In this paper, we take a step back and ask: How big is too big? What are the possible risks associated with this technology and what paths are available for mitigating those risks? We provide recommendations including weighing the environmental and financial costs first, investing resources into curating and carefully documenting datasets rather than ingesting everything on the web, carrying out pre-development exercises evaluating how the planned approach fits into research and development goals and supports stakeholder values, and encouraging research directions beyond ever larger language models.},
+	eventtitle = {{FAccT} '21: 2021 {ACM} Conference on Fairness, Accountability, and Transparency},
+	pages = {610--623},
+	booktitle = {Proceedings of the 2021 {ACM} Conference on Fairness, Accountability, and Transparency},
+	publisher = {{ACM}},
+	author = {Bender, Emily M. and Gebru, Timnit and {McMillan}-Major, Angelina and Shmitchell, Shmargaret},
+	urldate = {2021-09-07},
+	date = {2021-03-03},
+	langid = {english},
+	keywords = {ethics, machine-learning, natural-language, position-paper},
+}
+
+@inproceedings{badilla_wefe_2020,
+	location = {Yokohama, Japan},
+	title = {{WEFE}: The Word Embeddings Fairness Evaluation Framework},
+	isbn = {978-0-9992411-6-5},
+	url = {https://www.ijcai.org/proceedings/2020/60},
+	doi = {10.24963/ijcai.2020/60},
+	shorttitle = {{WEFE}},
+	abstract = {Word embeddings are known to exhibit stereotypical biases towards gender, race, religion, among other criteria. Several fairness metrics have been proposed in order to automatically quantify these biases. Although all metrics have a similar objective, the relationship between them is by no means clear. Two issues that prevent a clean comparison is that they operate with different inputs, and that their outputs are incompatible with each other. In this paper we propose {WEFE}, the word embeddings fairness evaluation framework, to encapsulate, evaluate and compare fairness metrics. Our framework needs a list of pre-trained embeddings and a set of fairness criteria, and it is based on checking correlations between fairness rankings induced by these criteria. We conduct a case study showing that rankings produced by existing fairness methods tend to correlate when measuring gender bias. This correlation is considerably less for other biases like race or religion. We also compare the fairness rankings with an embedding benchmark showing that there is no clear correlation between fairness and good performance in downstream tasks.},
+	eventtitle = {Twenty-Ninth International Joint Conference on Artificial Intelligence and Seventeenth Pacific Rim International Conference on Artificial Intelligence \{{IJCAI}-{PRICAI}-20\}},
+	pages = {430--436},
+	booktitle = {Proceedings of the Twenty-Ninth International Joint Conference on Artificial Intelligence},
+	publisher = {International Joint Conferences on Artificial Intelligence Organization},
+	author = {Badilla, Pablo and Bravo-Marquez, Felipe and Pérez, Jorge},
+	urldate = {2021-10-12},
+	date = {2020-07},
+	langid = {english},
+}
+
+@misc{sandhaus_evan_new_2008,
+	title = {The New York Times Annotated Corpus},
+	url = {https://catalog.ldc.upenn.edu/LDC2008T19},
+	abstract = {{\textless}h3{\textgreater}Introduction{\textless}/h3{\textgreater}{\textless}br{\textgreater} 
+{\textless}p{\textgreater}The New York Times Annotated Corpus contains over 1.8 million articles written and published by the New York Times between January 1, 1987 and June 19, 2007 with article metadata provided by the New York Times Newsroom, the New York Times Indexing Service and the online production staff at nytimes.com. The corpus includes:{\textless}/p{\textgreater}{\textless}br{\textgreater} 
+{\textless}ul{\textgreater}{\textless}br{\textgreater} 
+{\textless}li{\textgreater}Over 1.8 million articles (excluding wire services articles that appeared during the covered period).{\textless}/li{\textgreater}{\textless}br{\textgreater} 
+{\textless}li{\textgreater}Over 650,000 article summaries written by library scientists.{\textless}/li{\textgreater}{\textless}br{\textgreater} 
+{\textless}li{\textgreater}Over 1,500,000 articles manually tagged by library scientists with tags drawn from a normalized indexing vocabulary of people, organizations, locations and topic descriptors.{\textless}/li{\textgreater}{\textless}br{\textgreater} 
+{\textless}li{\textgreater}Over 275,000 algorithmically-tagged articles that have been hand verified by the online production staff at nytimes.com.{\textless}/li{\textgreater}{\textless}br{\textgreater} 
+{\textless}li{\textgreater}Java tools for parsing corpus documents from .xml into a memory resident object.{\textless}/li{\textgreater}{\textless}br{\textgreater} 
+{\textless}/ul{\textgreater}{\textless}br{\textgreater} 
+{\textless}p{\textgreater}As part of the New York Times' indexing procedures, most articles are manually summarized and tagged by a staff of library scientists. This collection contains over 650,000 article-summary pairs which may prove to be useful in the development and evaluation of algorithms for automated document summarization. Also, over 1.5 million documents have at least one tag. Articles are tagged for persons, places, organizations, titles and topics using a controlled vocabulary that is applied consistently across articles. For instance if one article mentions "Bill Clinton" and another refers to "President William Jefferson Clinton", both articles will be tagged with "{CLINTON}, {BILL}".{\textless}/p{\textgreater}{\textless}br{\textgreater} 
+{\textless}p{\textgreater}The New York Times has established a community website for researchers working on the data set at {\textless}a href="http://groups.google.com/group/nytnlp" rel="nofollow"{\textgreater}http://groups.google.com/group/nytnlp{\textless}/a{\textgreater} and encourages feedback and discussion about the corpus.{\textless}/p{\textgreater}{\textless}br{\textgreater} 
+{\textless}h3{\textgreater}Data{\textless}/h3{\textgreater}{\textless}br{\textgreater} 
+{\textless}p{\textgreater}The text in this corpus is formatted in {\textless}a href="http://www.nitf.org" rel="nofollow"{\textgreater}News Industry Text Format ({NITF}){\textless}/a{\textgreater} developed by the International Press Telecommunications Council, an independent association of news agencies and publishers. {NITF} is an {XML} specification that provides a standardized representation for the content and structure of discrete news articles. {NITF} encompasses structural markup such as bylines, headlines and paragraphs. The format also provides management attributes for categorizing articles into topics, summarization usage restrictions and revision histories. The goals of {NITF} are to answer the essential questions inherent in news articles: Who, What, When, Where and Why.{\textless}/p{\textgreater}{\textless}br{\textgreater} 
+{\textless}ul{\textgreater}{\textless}br{\textgreater} 
+{\textless}li{\textgreater}{\textless}strong{\textgreater}Who: {\textless}/strong{\textgreater}Who owns the copyright, who has rights to republish the article and who the article is about.{\textless}/li{\textgreater}{\textless}br{\textgreater} 
+{\textless}li{\textgreater}{\textless}strong{\textgreater}What: {\textless}/strong{\textgreater}The subjects reported, the named entities inside the article and the events it describes.{\textless}/li{\textgreater}{\textless}br{\textgreater} 
+{\textless}li{\textgreater}{\textless}strong{\textgreater}When: {\textless}/strong{\textgreater}When the article was written, when it was issued and when it was revised.{\textless}/li{\textgreater}{\textless}br{\textgreater} 
+{\textless}li{\textgreater}{\textless}strong{\textgreater}Where: {\textless}/strong{\textgreater}Where the article was written, where the events took place and where it was delivered.{\textless}/li{\textgreater}{\textless}br{\textgreater} 
+{\textless}li{\textgreater}{\textless}strong{\textgreater}Why: {\textless}/strong{\textgreater}The metadata describing the newsworthiness of the article.{\textless}/li{\textgreater}{\textless}br{\textgreater} 
+{\textless}/ul{\textgreater}{\textless}br{\textgreater} 
+{\textless}h3{\textgreater}Samples{\textless}/h3{\textgreater}{\textless}br{\textgreater} 
+{\textless}p{\textgreater}Please view the following {\textless}a href="desc/addenda/{LDC}2008T19\_large.jpg"{\textgreater}sample{\textless}/a{\textgreater}.{\textless}/p{\textgreater}{\textless}br{\textgreater} 
+{\textless}h3{\textgreater}Updates{\textless}/h3{\textgreater}{\textless}br{\textgreater} 
+{\textless}p{\textgreater}A {\textless}a href="../../../docs/{LDC}2008T19/new\_york\_times\_annotated\_corpus.pdf" rel="nofollow"{\textgreater}revised manual{\textless}/a{\textgreater} is now available.{\textless}/p{\textgreater}{\textless}/br{\textgreater} 
+Portions © 1987-2008 New York Times, © 2008 Trustees of the University of Pennsylvania},
+	publisher = {Linguistic Data Consortium},
+	author = {Sandhaus, Evan},
+	urldate = {2021-10-18},
+	date = {2008-10-17},
+	doi = {10.35111/77BA-9X74},
+	note = {Artwork Size: 3250585 {KB}
+Pages: 3250585 {KB}
+Type: dataset},
+}

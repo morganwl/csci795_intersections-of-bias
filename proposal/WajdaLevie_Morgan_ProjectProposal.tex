@@ -1,0 +1,186 @@
+\documentclass{article}
+
+\usepackage{biblatex}
+\addbibresource{CSCI 795_2021_Word Embeddings.bib}
+
+\usepackage{hunter}
+%\usepackage{homework}
+\usepackage{mlsem}
+
+\usepackage[margin=1.5in]{geometry}
+
+\usepackage{enumitem}
+\setlist[itemize]{nosep}
+
+\title{Intersections of Bias in Word Embeddings\\
+    \Large{CSCI 795 Final Project Proposal}}
+\date{October 19, 2021}
+\author{Rebecca Kleinbart \and Morgan Wajda-Levie}
+
+\begin{document}
+
+\maketitle
+
+\section{Description}
+
+Natural language processing (NLP) algorithms have made tremendous strides in
+their ability to learn semantic and syntactic patterns from a corpus of
+documents, and apply these patterns to machine translation, document
+identification, text processing, and even novel text generation.
+Unfortunately, learning these patterns includes learning underlying
+biases, prejudices and stereotypes contained in the training documents,
+biases which are then reproduced in NLP applications. Word embedding
+algorithms, for instance, have been shown to not only capture, but
+amplify, existing biases in the training corpus. These biases can cause
+harm, especially to people who are part of marginalized groups.
+
+Understanding underlying biases in word embeddings is an active area of
+research, with particular focus in binary gender bias. Researchers have
+proposed a number of ways to evaluate gender bias in word embeddings,
+and some techniques for reducing the level of bias. Our goal is to
+expand our understanding of bias beyond the one-dimensional area of
+binary gender and into a broader, intersectional space of bias and
+discrimination towards multiple categories such as race, ethnicity,
+nationality and sexuality. By looking at multiple forms of bias, are we
+able to find commonalities and correlations that allow us to cast a wide
+net for understanding, and potentially mitigating bias in our trained
+model?
+
+Our experiment will start from the work of Brunet, Alkalay-Houlihan,
+Anderson and Zemel in their paper, ``Understanding the Origins of Bias
+in Word Embeddings.'' in which they use an effective Word Embedding
+Association Test (WEAT) for measuring stereotypical gender associations,
+and a technique for estimating the impact that an individual document
+will have on the final bias of a word embedding. We will use WEAT to
+measure a large number of other bias features and then, after exploring
+the data directly, attempt to perform a linear regression on the bias
+features to create a single \emph{intersectional bias impact} score, and
+then evaluate the effectiveness of that score in allowing us to reduce
+a broad range of biases in our word embeddings, without adversely
+impacting the embeddings' performance.
+
+\section{Team Member Contributions}
+
+Rebecca Kleinbart
+\begin{itemize}
+    \item Research sociological and psychological background for
+        evaluating bias and discrimination
+    \item Further research into word embedding algorithms
+    \item Identify IAT / WEAT / RNSB test sets
+    \item Dry run WEAT document estimation per Brunet et
+        al~\cite{brunet_understanding_2019}
+    \item Evaluate results of estimation algorithm using tests
+        in Gonen and Goldberg~\cite{gonen_lipstick_2019}
+    \item Modify estimation algorithm to perform and record new tests
+    \item Run estimation algorithm on all chosen bias tests
+    \item Explore resulting data
+    \item Tune and train regression algorithm on collected bias features
+    \item Use intersectional bias impact score to perturb training
+        corpus and train new word embeddings
+    \item Evaluate individual bias scores of trained word embeddings
+    \item Evaluate NLP performance of trained word embeddings
+    \item Create video
+\end{itemize}
+
+\vspace{1em}
+\noindent
+Morgan Wajda-Levie
+\begin{itemize}
+    \item Research sociological and psychological background for
+        evaluating bias and discrimination
+    \item Further research into word embedding algorithms
+    \item Identify IAT / WEAT / RNSB test sets
+    \item Dry run WEAT document estimation per Brunet et
+        al~\cite{brunet_understanding_2019}
+    \item Evaluate results of estimation algorithm using tests
+        in Gonen and Goldberg~\cite{gonen_lipstick_2019}
+    \item Modify estimation algorithm to perform and record new tests
+    \item Run estimation algorithm on all chosen bias tests
+    \item Explore resulting data
+    \item Tune and train regression algorithm on collected bias features
+    \item Use intersectional bias impact score to perturb training
+        corpus and train new word embeddings
+    \item Evaluate individual bias scores of trained word embeddings
+    \item Evaluate NLP performance of trained word embeddings
+    \item Create video.
+\end{itemize}
+
+\section{CSCI 795 Related Topics}
+
+\section{Dataset}
+
+We have chosen to use the same dataset as Brunet et al, the New York
+Times Annotated Corpus~\cite{sandhaus_evan_new_2008}. This dataset
+collects 1.8 million articles published in the New York Times between
+1987 and 2007, and represents a corpus similar to what might be used in
+a commercial or academic application~\cite{brunet_understanding_2019}.
+
+\section{Timeline}
+
+\begin{tabular}{p{1in}|p{\dimexpr\linewidth-1in-4\tabcolsep}}
+    \hline
+    \textbf{Week Ending} & \textbf{Task} \\
+    \hline
+    10/26/21 & Complete literature review \\
+             & Configure WEAT program and perform dry run using
+             experimental data of Brunet et
+             al\cite{brunet_understanding_2019} \\
+             & Evaluate results of estimation algorithm using tests in
+             Gonen and Goldberg\cite{gonen_lipstick_2019} \\
+             &\\
+    11/02/21 & Choose bias features and corresponding tests \\
+             & Modify algorithm to perform and record new tests \\
+             & Begin running bias tests and estimation algorithms \\
+             &\\
+    11/09/21 & Continue running bias tests and estimation algorithms \\
+             & Explore bias data \\
+             &\\
+    11/16/21 & Begin tuning and training regression algorithm on
+    collected bias features \\
+             &\\
+    11/23/21 & Finish tuning and training regression algorithm \\
+             & Evaluate regression algorithm \\
+             & Begin writing report \\
+             &\\
+    11/30/21 & First draft of report \\
+             & Create video \\
+             &\\
+    12/14/21 & Final presentation of project \\
+    \hline
+\end{tabular}
+
+    
+
+\section{Final Deliverables}
+
+Data on our experiment, both correlations and relations found in
+exploratory data analysis and our final evaluations of the trained
+regression, will be presented as both tables and appropriate graphical
+plots. We will describe the experiment in detail, as well as our results
+and conclusions, in a written report, allowing us to present any
+findings to our classmates.
+
+We will also make some sort of video to present the information in a
+slightly less formal and more usefriendly way.
+
+\section{Evaluation}
+
+We will evaluate the effectiveness of our regression model and our
+experiment for two concerns. Firstly, we will evaluate the degree to
+which our model successfully addresses all forms of bias we consider,
+regardless of whether or not those features were included in the final
+model. Having trained our regression model, we will remove the documents
+with the greatest estimated negative impact from our training
+corpus and train word embeddings on the resulting perturbed corpus. We
+will measure individual bias features on those word embeddings and
+compare them to our target. We will also measure the bias-by-neighbors
+of at least some of our bias features using the method described in
+Gonen and Goldberg\cite{gonen_lipstick_2019}.
+
+Secondly, we will evaluate the performance of our perturbed embeddings
+using the performance tests provided by the gloVe developers. This will
+allow us to ensure that perturbing our dataset to address biases has not
+adversely affected overall performance benchmarks.
+
+\end{document}
+
