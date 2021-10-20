@@ -52,7 +52,10 @@ in Word Embeddings.'' in which they use an effective Word Embedding
 Association Test (WEAT) for measuring stereotypical gender associations
 in gloVe word embeddings, and a technique for estimating the impact that
 an individual document will have on the final bias of a word embedding%
-\cite{brunet_understanding_2019}.  We will use WEAT to measure a large
+\cite{brunet_understanding_2019}. Once the impact of a given document is
+estimated, the corpus can be \emph{perturbed} by witholding that
+document when training the model, thereby reducing the resultant overall
+bias in the trained word embeddings. We will use WEAT to measure a large
 number of other bias features and then, after exploring the data
 directly, attempt to perform a regression on the bias features to
 estimate the area of effect on \emph{intersectional bias}, and then
@@ -171,9 +174,7 @@ a commercial or academic application\cite{brunet_understanding_2019}.
     12/14/21 & Final presentation of project \\
     \hline
 \end{tabular}
-
     
-
 \section{Final Deliverables}
 
 Data on our experiment, both correlations and relations found in
