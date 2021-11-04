@@ -1,14 +1,7 @@
----
-author:
-- Rebecca Kleinbart
-- Morgan Wajda-Levie
-bibliography:
-- CSCI 795_2021_Word Embeddings.bib
-date: October 19, 2021
-title: |
-  Intersections of Bias in Word Embeddings\
-  CSCI 795 Final Project Proposal
----
+#  Intersections of Bias in Word Embeddings\
+#  CSCI 795 Final Project Proposal
+#### Rebecca Kleinbart, Morgan Wajda-Levie
+#### October 19, 2021
 
 # Description
 
