@@ -8,7 +8,7 @@
 | Date   | Task|
 |--------|-----|
 |10/26/21|Complete literature review                                   |
-|        |Configure WEAT program and perform dry run                   |
+|        |~~Configure WEAT program and perform dry run~~               |
 |        |Evaluate results of estimation algorithm using tests in G+G  |
 |11/02/21|Choose bias features and corresponding tests                 |
 |        |Modify algorithm to perform and record new tests             |
