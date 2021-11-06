@@ -2,9 +2,12 @@
 
 BASE_DIR="$(dirname $0)/.."
 
-EMBED_BIN=$1
-VOCAB=$2
+EMBED_BIN="../"$1
+VOCAB="../"$2
 EMBED_TXT=${EMBED_BIN%.*}.txt.tmp # Create name for txt vectors
+echo $EMBED_BIN
+echo $VOCAB
+echo $EMBED_TXT
 
 cd $BASE_DIR/GloVe # change directory to GloVe
 

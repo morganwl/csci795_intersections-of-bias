@@ -5,19 +5,21 @@
 BASE_DIR=$(dirname $0)
 
 # Initialize and update submodules
-echo Initializing git submodules...
+echo "Initializing git submodules..."
 git submodule init && git submodule update
 echo
 
 # Setup python environment
 echo Setting up python environment...
 virtualenv -p python3 venv || python3 -m venv venv
-venv/bin/pip install -r requirements.txt
+venv/bin/pip install --upgrade pip
+# install the python scripts into the virtual environment
+venv/bin/pip install -e .
 echo
 
 # Setup julia environment
 echo Setting up julia environment...
-julia --project -e "import Pkg; Pkg.instantiate()"
+julia --project -e "import Pkg; Pkg.instantiate(), Pkg.update()"
 echo
 
 # Make Wiki corpus
@@ -33,7 +35,8 @@ echo
 
 # Evaluate annalogy performance
 echo Evaluating analogy performace...
-scripts/analogy.sh embeddings/vectors-C0-V20-W8-D25-R0.05-E15-S1.bin
+scripts/analogy.sh embeddings/vectors-C0-V20-W8-D25-R0.05-E15-S1.bin \
+    embeddings/vocab-C0-V20.txt
 echo
 
 # Run tests

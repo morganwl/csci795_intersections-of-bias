@@ -1,5 +1,20 @@
 ## Source code from other projects not meant to be included in repo
 code/shared/*
+!code/shared/understanding-bias/
+!code/shared/understanding-bias/*
+
+# Ignore corpora and results
+corpora/*
+
+# Julia
+*.jl.cov
+*.jl.*.cov
+*.jl.mem
+deps/deps.jl
+
+# Scratch
+src/scratch.*
+
 
 ## MacOS nonsense
 .DS_Store

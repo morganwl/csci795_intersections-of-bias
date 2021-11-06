@@ -1,0 +1,3 @@
+[submodule "code/shared/understanding-bias/GloVe"]
+	path = code/shared/understanding-bias/GloVe
+	url = https://github.com/mebrunet/GloVe
