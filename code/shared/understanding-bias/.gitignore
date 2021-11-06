@@ -1,0 +1,17 @@
+# Julia
+*.jl.cov
+*.jl.*.cov
+*.jl.mem
+deps/deps.jl
+
+# Python
+venv
+
+# Scratch
+src/scratch.*
+
+# Utils
+push
+
+# OS
+.DS_store
