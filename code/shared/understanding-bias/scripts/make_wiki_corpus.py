@@ -9,7 +9,7 @@ ARTICLE_MIN_WC = 200
 ARTICLE_MAX_WC = 10000
 
 
-def get_articles(base_dir, wiki_path):
+def get_articles(wiki_path):
     """Parses the wikimedia bz2 file and returns articles as a list of
     strings (one string per article) and a corresponding title index, in
     the form (list of str, (int, str))."""
@@ -23,11 +23,18 @@ def get_articles(base_dir, wiki_path):
     print("Total Number of Articles:", len(articles))
     return articles
 
-def output_corpus(articles, outname):
+def output_corpus(articles, outname, max_wc=None, min_wc=None,
+                  total_max_wc=None):
     """Filters articles between min_wc and max_wc and saves them to a
     text file, one article per line. Stops if the total file size would
     exceed total_max_wc. Returns an index of selected articles, the
     article count and the word count."""
+    if max_wc is None:
+        max_wc = ARTICLE_MAX_WC
+    if min_wc is None:
+        min_wc = ARTICLE_MIN_WC
+    if total_max_wc is None:
+        total_max_wc = MAX_WC
     num_articles = len(articles)
     ac = 0
     wc = 0
@@ -39,7 +46,7 @@ def output_corpus(articles, outname):
         for i in range(num_articles):
             article, (id, name) = articles[i]
             art_len = len(article)
-            if art_len >= ARTICLE_MIN_WC and art_len <= ARTICLE_MAX_WC:
+            if art_len >= min_wc and art_len <= max_wc:
                 text = " ".join(article)
                 wc += art_len
                 ac += 1
@@ -50,16 +57,20 @@ def output_corpus(articles, outname):
                 f.write("\n")
                 line += 1
 
-            if wc >= MAX_WC:
+            if wc >= total_max_wc:
                 break
     print("Selected", ac, "documents. (", wc, "words )")
     return index, ac, wc
 
-def write_metadata(index, ac, wc, outname):
+def write_metadata(index, ac, wc, outname, max_wc=None, min_wc=None):
+    if max_wc is None:
+        max_wc = ARTICLE_MAX_WC
+    if min_wc is None:
+        min_wc = ARTICLE_MIN_WC
     metadata = {
         "source": wiki_filename,
-        "document_min_wc": ARTICLE_MIN_WC,
-        "document_max_wc": ARTICLE_MAX_WC,
+        "document_min_wc": min_wc,
+        "document_max_wc": max_wc,
         "num_documents": ac,
         "num_words": wc,
         "fields": list(index[0].keys()),
@@ -76,26 +87,39 @@ def write_metadata(index, ac, wc, outname):
             f.write(str(val))
             f.write("\n")
 
-def main(wiki_filename, rebuild=False):
+def main(wiki_filename, outname=None, rebuild=False):
     # identify input and output files relative to location of this
     # script
     base_dir = path.join(path.dirname(path.realpath(__file__)),
                          path.pardir)
     wiki_path = path.join(base_dir, 'corpora', wiki_filename)
-    outname = path.join(base_dir, 'corpora', 'simplewikiselect')
+    if outname is None:
+        outname = path.join(base_dir, 'corpora', 'simplewikiselect')
+    else:
+        outname = path.join(base_dir, 'corpora', outname)
     
-    if path.exists(outname + '.txt' and not rebuild):
+    if path.exists(outname + '.txt') and not rebuild:
         print(outname + '.txt', 'already exists. To forcibly remake',
         'corpus, use --rebuild option.')
         return
 
-    articles = get_articles(base_dir, WIKI_FILENAME)
-    index, ac, wc = output_corpus(articles, base_dir, WIKI_FILENAME)
+    articles = get_articles(wiki_path)
+    index, ac, wc = output_corpus(articles, outname, ARTICLE_MAX_WC,
+                                  ARTICLE_MIN_WC, MAX_WC)
     write_metadata(index, ac, wc, outname)
 
 if __name__ == '__main__':
     if '--rebuild' in sys.argv:
         rebuild = True
+        sys.argv.remove('--rebuild')
     else:
         rebuild = False
-    main(WIKI_FILENAME, rebuild)
+    if len(sys.argv) > 1:
+        wiki_filename = sys.argv[1]
+    else:
+        wiki_filename = WIKI_FILENAME
+    if len(sys.argv) > 2:
+        outname = sys.argv[2]
+    else:
+        outname = None
+    main(wiki_filename, outname, rebuild)
