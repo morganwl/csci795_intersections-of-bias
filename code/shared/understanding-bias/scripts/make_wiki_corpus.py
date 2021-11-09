@@ -10,6 +10,9 @@ ARTICLE_MAX_WC = 10000
 
 
 def get_articles(base_dir, wiki_path):
+    """Parses the wikimedia bz2 file and returns articles as a list of
+    strings (one string per article) and a corresponding title index, in
+    the form (list of str, (int, str))."""
     # dict=True avoids making vocab
     wiki = WikiCorpus(wiki_path, dictionary=True)
     wiki.metadata = True  # Want article titles
@@ -21,6 +24,10 @@ def get_articles(base_dir, wiki_path):
     return articles
 
 def output_corpus(articles, outname):
+    """Filters articles between min_wc and max_wc and saves them to a
+    text file, one article per line. Stops if the total file size would
+    exceed total_max_wc. Returns an index of selected articles, the
+    article count and the word count."""
     num_articles = len(articles)
     ac = 0
     wc = 0
