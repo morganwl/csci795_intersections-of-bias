@@ -103,12 +103,18 @@ end
 end
 
 
+"""
+usage:
+julia --project differential_bias.jl _vectors.bin_ _corpus.txt_ _output.csv_
+"""
 function main()
+    # Read command-line arguments
     embedding_path = get(ARGS, 1, "embeddings/vectors-C0-V20-W8-D25-R0.05-E15-S1.bin")
     corpus_path = get(ARGS, 2, "corpora/simplewikiselect.txt")
     out_file = get(ARGS, 3, "results/diff_bias-C0-V20-W8-D25-R0.05-E15-S1.csv")
 
     println("Computing Differential Bias")
+    # Load model and corpus
     print("$(now()) - Loading model and corpus... ")
     M = GloVe.load_model(embedding_path)
     corpus = Corpora.Corpus(corpus_path)
@@ -118,19 +124,26 @@ function main()
     println("Corpus: $(corpus.corpus_path) ($(corpus.num_words) tokens, $(corpus.num_documents) docs)")
 
     # WEAT BIAS
+    # Iterates through all WEAT word sets in word_sets.jl
+    # TO-DO: Specify word sets on command line
+    # TO-DO: Specify word sets in configuration file
     weat_idx_sets = [Bias.get_weat_idx_set(set, M.vocab) for set in Bias.WEAT_WORD_SETS]
     all_weat_indices = unique([i for set in weat_idx_sets for inds in set for i in inds])
+
+    # Print effect sizes and p-values for unperturbed embedding
     effect_sizes = [Bias.effect_size(M.W, set) for set in weat_idx_sets]
     p_values = [Bias.p_value(M.W, set) for set in weat_idx_sets]
     println("WEAT effect sizes: $effect_sizes")
     println("WEAT p-values: $p_values")
 
-    print("$(now()) - Loading coocurence matrix... ")
+    # Load cooccurrence matrix
+    print("$(now()) - Loading cooccurrence matrix... ")
     cooc_path = "$(dirname(embedding_path))/cooc$(match(r"-C[0-9]+-V[0-9]+-W[0-9]+", embedding_path).match).bin"
     X = GloVe.load_cooc(cooc_path, M.V, all_weat_indices)
     println("Done.")
     println("Cooc: $(abspath(cooc_path)) ($(nnz(X)) nnz)")
 
+    # Precompute Hessians and Gradients
     print("$(now()) - Precomputing Hessians and Gradients... ")
     inv_hessians, gradients = pre_compute(M, X, all_weat_indices)
     println("Done.")
@@ -140,6 +153,8 @@ function main()
     results = RemoteChannel(()->Channel{Tuple}(100))
     job_list = make_job_list(corpus)
 
+    # Asynchronously estimate differential biases for each document
+    # Output results to out_file as subprocesses complete
     @sync begin
         @async queue_jobs(corpus, jobs, job_list)
 
