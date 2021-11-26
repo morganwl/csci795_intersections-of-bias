@@ -1,3 +1,8 @@
+"""
+usage:
+julia --project make_perturbations.jl target diff_bias_dir 
+    embedding_dir corpus_dir pert_dir
+"""
 # Script to:
 # - load diff bias csv files,
 # - average to find most biased document sets,
@@ -45,18 +50,19 @@ function load_df(target, bias_col=:ΔBIF_1)
     for f in readdir(diff_bias_dir)
         if occursin(Regex(target), f)
             i += 1
-            tmp = sort(CSV.read(joinpath(diff_bias_dir, f)), :doc_num)
+            tmp = sort(CSV.read(joinpath(diff_bias_dir, f), DataFrame), :doc_num)
             if (i == 1)
-                df[:doc_num] = tmp[:doc_num]
+                println(names(df))
+                df[!, :doc_num] = tmp[!, :doc_num]
             end
             col = Symbol("ΔBIF_$(i)")
-            df[col] = tmp[bias_col]
+            df[!, col] = tmp[!, bias_col]
             push!(cols, col)
         end
     end
     println("Loaded $i differential bias results")
-    df[:ΔBIF_μ] = [mean([row[col] for col in cols]) for row in eachrow(df)]
-    df[:ΔBIF_σ] = [std([row[col] for col in cols]) for row in eachrow(df)]
+    df[!, :ΔBIF_μ] = [mean([row[col] for col in cols]) for row in eachrow(df)]
+    df[!, :ΔBIF_σ] = [std([row[col] for col in cols]) for row in eachrow(df)]
     return df
 end
 
@@ -66,7 +72,7 @@ function make_perturbation(name, article_ids, biases, out_dir; verbose=true)
     articles = Corpora.get_texts(corpus, article_ids)
     δX = GloVe.docs2cooc(articles, vocab, window)
     bias = sum(biases)
-    data = (name, nnz(δX), vecnorm(δX), bias)
+    data = (name, nnz(δX), norm(δX), bias)
     GloVe.save_coocs(joinpath(out_dir, "pert-$name.bin"), δX)
     verbose && println("Done.\n")
 end
@@ -76,27 +82,28 @@ function make_perturbations(target, bias_col=:ΔBIF_1, dir_name="B1")
     out_dir = joinpath(pert_dir, dir_name)
     mkpath(out_dir)
     df = load_df(target, bias_col)
-    sorted = sort(df[[:ΔBIF_μ, :doc_num]])
+    println(names(df))
+    sorted = sort(df, [:ΔBIF_μ, :doc_num])
 
     for N in set_sizes
         # Correcting Articles
         name = "correct_$(N)_1"
-        article_ids, biases = sorted[:doc_num][1:N], sorted[:ΔBIF_μ][1:N]
+        article_ids, biases = sorted[!, :doc_num][1:N], sorted[!, :ΔBIF_μ][1:N]
         make_perturbation(name, article_ids, biases, out_dir)
 
         # Aggravating Articles
         name = "aggravate_$(N)_1"
 
-        article_ids = sorted[:doc_num][end-(N-1):end]
-        biases = sorted[:ΔBIF_μ][end-(N-1):end]
+        article_ids = sorted[!, :doc_num][end-(N-1):end]
+        biases = sorted[!, :ΔBIF_μ][end-(N-1):end]
         make_perturbation(name, article_ids, biases, out_dir)
 
         # Random
-        all_article_ids = Array{Int64}(df[:doc_num])
+        all_article_ids = Array{Int64}(df[!, :doc_num])
         for run in 1:3
             name = "random_$(N)_$(run)"
             article_ids = shuffle(all_article_ids)[1:N]
-            biases = [df[:ΔBIF_μ][df[:doc_num] .== id][1] for id in article_ids]
+            biases = [df[!, :ΔBIF_μ][df[!, :doc_num] .== id][1] for id in article_ids]
             make_perturbation(name, article_ids, biases, out_dir)
         end
     end
@@ -118,7 +125,9 @@ end
 
 
 function main()
-    for i in 1:length(Bias.WEAT_WORD_SETS)
+    # This needs to respond to the number of word sets in the run, which
+    # should be contained in the diff_bias results file
+    for i in [1] # :length(Bias.WEAT_WORD_SETS)
         out_dir = make_perturbations(target, Symbol("ΔBIF_$i"), "$target-B$i")
         make_config_file(target, out_dir)
     end
