@@ -38,6 +38,8 @@ setuptools.setup(
                       'six',
                       'smart-open',
                       'urllib3',
+                      'pandas',
+                      'matplotlib',
                       ],
     classifiers=[
         "Programming Language :: Python :: 3",

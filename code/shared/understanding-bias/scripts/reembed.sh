@@ -51,7 +51,7 @@ for pert_path in $(ls $PERT_DIR/$TARGET/pert-*); do
   add_pert $pert_path
   TMP=${PERT_FILENAME##pert-}
   TMP=${TMP%%.bin}
-  for SEED in $(seq 1 5); do
+  for SEED in $(seq 1 1); do
       SAVE_FILE=$RESULTS_DIR/vectors-${TMP}_$SEED  # Don't include .bin
 
       echo "Reshuffling with seed $SEED"

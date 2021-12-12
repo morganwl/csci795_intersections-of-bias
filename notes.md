@@ -21,9 +21,32 @@ Understanding Bias code.
           to use the number of word sets used in a given differential
           bias results file.
           - Just using 1 wordset for now
+        - This program runs pretty quickly. Maybe a minute or two.
     - [ ] add_perturbations.jl
     - [ ] pert_pred_bias.jl
+        - Not sure exactly what this program does, but I added support
+          for specifying WEAT sets on the command line!
+            - A better implementation would allow the selected WEAT sets
+              to carry across from the initial runthrough to the final
+              command. For now, I will probably implement this in a
+              python front-end.
     - [ ] pert_true_bias.jl
+        - Added support for specifiying WEAT sets on the command line
+        - Relies on new embeddings created by scripts/reemebed.sh
+    - [ ] reembed.sh
+        - scripts/reembed.sh _target_ _pert-dir_ _embedding-dir_
+        - Operates on a single perturbation target at a time (ie, one
+          WEAT set)
+        - Trains with 5 seeds
+        - I imagine this will be commensurate in time with creating the
+          initial embeddings
+            - This trains 5 new embeddings __for each perturbation
+              file__, which is a lot of new embeddings
+            - make_perturbations.jl makes 30 perturbations for each WEAT
+              set, which means reembed.sh will make 150 embeddings for
+              each WEAT set. With the 15 iteration "toy" embedding, this
+              runs at about 90 seconds per embedding, for a total of
+              3.75 hours.
 [ ] Read and document the code for "approximate the differential bias"
 
 ## 11-16-21

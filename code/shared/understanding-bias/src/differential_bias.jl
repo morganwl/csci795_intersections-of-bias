@@ -189,8 +189,6 @@ function main()
     println("Corpus: $(corpus.corpus_path) ($(corpus.num_words) tokens, $(corpus.num_documents) docs)")
 
     # WEAT BIAS
-    # Iterates through all WEAT word sets in word_sets.jl
-    # TO-DO: Specify word sets on command line
     # TO-DO: Specify word sets in configuration file
     if "wordset" in keys(parsed_args)
         println("Processing for wordsets", parsed_args["wordset"])
