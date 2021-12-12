@@ -7,8 +7,8 @@
     global M = GloVe.load_model(embedding_path)
 
     @testset "Basic functioning" begin
-        global weat_idx_set_1 = Bias.get_weat_idx_set(Bias.WEAT_WORD_SETS[1], M.vocab)
-        weat_idx_set_2 = Bias.get_weat_idx_set(Bias.WEAT_WORD_SETS[2], M.vocab)
+        global weat_idx_set_1 = Bias.get_weat_idx_set(collect(values(Bias.WEAT_WORD_SETS))[1], M.vocab)
+        weat_idx_set_2 = Bias.get_weat_idx_set(collect(values(Bias.WEAT_WORD_SETS))[2], M.vocab)
         # Rudimentary, but at least verifies dimensionality
         @test typeof(Bias.effect_size(M.W, weat_idx_set_1)) <: Real
         @test typeof(Bias.effect_size(M.W, weat_idx_set_2)) <: Real

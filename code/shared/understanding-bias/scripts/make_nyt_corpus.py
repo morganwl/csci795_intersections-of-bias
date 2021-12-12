@@ -83,7 +83,11 @@ def process_contents(base_dir, outfile, article_meta, limit=None, verbose=False,
                 continue
             archive_path = os.path.join(folder, subcontent)
             # print('-', archive_path)
-            archive = tarfile.open(archive_path, mode='r')
+            try:
+                archive = tarfile.open(archive_path, mode='r')
+            except IsADirectoryError:
+                print(('Warning: {} is a'
+                      'directory.').format(archive_path))
             for member in archive.getmembers():
                 f = archive.extractfile(member)  # f can be None
                 if f is None:
@@ -119,30 +123,34 @@ def process_contents(base_dir, outfile, article_meta, limit=None, verbose=False,
     return (ac, twc)
 
 
-# List archives
-article_meta = []  # Save information about the articles
-outname = 'corpora/nytselect'
+def main():
+    # List archives
+    article_meta = []  # Save information about the articles
+    outname = 'corpora/nytselect'
 
-with open(outname + ".txt", mode='w') as f:
-    base_dir = 'corpora/nyt_corpus/data/'
-    (ac, twc) = process_contents(base_dir, f, article_meta, limit=None)
+    with open(outname + ".txt", mode='w') as f:
+        base_dir = 'corpora/nyt_corpus/data/'
+        (ac, twc) = process_contents(base_dir, f, article_meta, limit=None)
 
-metadata = {
-    "source": "NYT Corpus",
-    "document_min_wc": ARTICLE_MIN_WC,
-    "document_max_wc": ARTICLE_MAX_WC,
-    "num_documents": ac,
-    "num_words": twc,
-    "fields": list(article_meta[0].keys()),
-    "index": article_meta}
+    metadata = {
+        "source": "NYT Corpus",
+        "document_min_wc": ARTICLE_MIN_WC,
+        "document_max_wc": ARTICLE_MAX_WC,
+        "num_documents": ac,
+        "num_words": twc,
+        "fields": list(article_meta[0].keys()),
+        "index": article_meta}
 
-with open(outname + ".meta.json", "w") as f:
-    json.dump(metadata, f, indent=4)
+    with open(outname + ".meta.json", "w") as f:
+        json.dump(metadata, f, indent=4)
 
-with open(outname + ".meta.txt", "w") as f:
-    del metadata["index"]
-    for key, val in metadata.items():
-        f.write(key)
-        f.write(": ")
-        f.write(str(val))
-        f.write("\n")
+    with open(outname + ".meta.txt", "w") as f:
+        del metadata["index"]
+        for key, val in metadata.items():
+            f.write(key)
+            f.write(": ")
+            f.write(str(val))
+            f.write("\n")
+
+if __name__ == '__main__':
+    main()

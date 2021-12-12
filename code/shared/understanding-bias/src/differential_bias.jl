@@ -1,4 +1,10 @@
+"""
+usage:
+julia --project differential_bias.jl _vectors.bin_ _corpus.txt_ _output.csv_
+"""
+
 using Distributed
+using ArgParse
 @everywhere using Dates
 @everywhere using SparseArrays
 @everywhere using LinearAlgebra
@@ -10,6 +16,62 @@ include_everywhere("GloVe.jl")
 include_everywhere("Bias.jl")
 
 PRINT_EVERY = 1_000
+const DEFAULT_EMBEDDING = "embeddings/vectors-C0-V20-W8-D25-R0.05-E15-S1.bin"
+const DEFAULT_CORPUS = "corpora/simplewikiselect.txt"
+const DEFAULT_OUTPUT = "results/diff_bias-C0-V20-W8-D25-R0.05-E15-S1.csv"
+
+"""Parses command line arguments and returns a Dict with arguments or
+default values."""
+function parse_commandline()
+    # I couldn't get ArgParse to work so I'm having to do this by hand
+
+    # list of valid arguments for each type of valid argument
+    options = [
+               "wordset",
+              ]
+    flags = []
+    # positional arguments are tuples of the argument name and the
+    # default value. if the default value is nothing, arguments are
+    # treated as required
+    positional = [
+                  ("embedding", DEFAULT_EMBEDDING),
+                  ("corpus", DEFAULT_CORPUS),
+                  ("out_file", DEFAULT_OUTPUT),
+                 ]
+
+    # Parse optional arguments and flags
+    parsed_args = Dict()
+    positionals = []
+    expecting = nothing    # set this when expecting to consume the next argument
+    for arg in ARGS
+        if !isnothing(expecting)
+            parsed_args[expecting] = arg
+            expecting = nothing
+            continue
+        end
+        if startswith(arg, "--")
+            option = arg[3:end]
+            println(option)
+            if option in options
+                expecting = option
+                continue
+            end
+            if option in flags
+                parsed_args[option] = true
+                continue
+            end
+        end
+        push!(positionals, arg)
+    end
+    for i in 1:length(positional)
+        if i <= length(positionals)
+            parsed_args[positional[i][1]] = positionals[i]
+        else
+            parsed_args[positional[i][1]] = positional[i][2]
+        end
+    end
+    return parsed_args
+end
 
 function pre_compute(M, X, word_indices)
     num_words = length(word_indices)
@@ -102,16 +164,19 @@ end
     flush(stdout)
 end
 
+function parse_args(args)
+end
 
-"""
-usage:
-julia --project differential_bias.jl _vectors.bin_ _corpus.txt_ _output.csv_
-"""
+
 function main()
     # Read command-line arguments
-    embedding_path = get(ARGS, 1, "embeddings/vectors-C0-V20-W8-D25-R0.05-E15-S1.bin")
-    corpus_path = get(ARGS, 2, "corpora/simplewikiselect.txt")
-    out_file = get(ARGS, 3, "results/diff_bias-C0-V20-W8-D25-R0.05-E15-S1.csv")
+    # embedding_path = get(ARGS, 1, DEFAULT_EMBEDDING)
+    # corpus_path = get(ARGS, 2, DEFAULT_CORPUS)
+    # out_file = get(ARGS, 3, DEFAULT_OUTPUT)
+    parsed_args = parse_commandline()
+    embedding_path = parsed_args["embedding"]
+    corpus_path = parsed_args["corpus"]
+    out_file = parsed_args["out_file"]
 
     println("Computing Differential Bias")
     # Load model and corpus
@@ -124,10 +189,14 @@ function main()
     println("Corpus: $(corpus.corpus_path) ($(corpus.num_words) tokens, $(corpus.num_documents) docs)")
 
     # WEAT BIAS
-    # Iterates through all WEAT word sets in word_sets.jl
-    # TO-DO: Specify word sets on command line
     # TO-DO: Specify word sets in configuration file
-    weat_idx_sets = [Bias.get_weat_idx_set(set, M.vocab) for set in Bias.WEAT_WORD_SETS]
+    if "wordset" in keys(parsed_args)
+        println("Processing for wordsets", parsed_args["wordset"])
+        sets = split(parsed_args["wordset"], ",")
+        weat_idx_sets = [Bias.get_weat_idx_set(Bias.WEAT_WORD_SETS[strip(set)], M.vocab) for set in sets]
+    else
+        weat_idx_sets = [Bias.get_weat_idx_set(set, M.vocab) for set in values(Bias.WEAT_WORD_SETS)]
+    end
     all_weat_indices = unique([i for set in weat_idx_sets for inds in set for i in inds])
 
     # Print effect sizes and p-values for unperturbed embedding

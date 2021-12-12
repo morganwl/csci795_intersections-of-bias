@@ -1,5 +1,95 @@
 # csci795: project notes
 
+## 12-12-21
+### Morgan
+
+Rebecca got the NYT corpus in, so I need to prep it for
+understanding-bias. Then I need to start pulling in WEAT tests.
+
+- [X] Potentially modify nyt corpus script
+- [X] Assemble NYT corpus for GloVe
+- [ ] Train word embedding on NYT corpus (this will probably take a
+  while, use Josephine's desktop)
+- [ ] Write README for using the various understanding-bias scripts
+- [ ] Start collating WEAT tests from as many sources as possible.
+
+## 11-26-21
+### Morgan
+
+I need to continue understanding and potentially modifying the
+Understanding Bias code.
+
+- [ ] Read and document the code for "construct perturbation sets" step
+    - [ ] make_perturbations.jl
+        - Numerous syntax errors
+            - DataFrames now index as df[!, col] or df[:, col]. ! =
+              references original column in df. : = creates copy of
+              column.
+            - I changed all instances to [!, col].
+                - Need to find a way to check that this is correct
+                  behavior
+            - DataFrame sorting syntax changed slightly
+            - vecnorm() is now just norm()
+        - [ ] Currently uses number of hard coded wordsets. I need to change
+          to use the number of word sets used in a given differential
+          bias results file.
+          - Just using 1 wordset for now
+        - This program runs pretty quickly. Maybe a minute or two.
+    - [ ] add_perturbations.jl
+    - [ ] pert_pred_bias.jl
+        - Not sure exactly what this program does, but I added support
+          for specifying WEAT sets on the command line!
+            - A better implementation would allow the selected WEAT sets
+              to carry across from the initial runthrough to the final
+              command. For now, I will probably implement this in a
+              python front-end.
+    - [ ] pert_true_bias.jl
+        - Added support for specifiying WEAT sets on the command line
+        - Relies on new embeddings created by scripts/reemebed.sh
+    - [ ] reembed.sh
+        - scripts/reembed.sh _target_ _pert-dir_ _embedding-dir_
+        - Operates on a single perturbation target at a time (ie, one
+          WEAT set)
+        - Trains with 5 seeds
+        - I imagine this will be commensurate in time with creating the
+          initial embeddings
+            - This trains 5 new embeddings __for each perturbation
+              file__, which is a lot of new embeddings
+            - make_perturbations.jl makes 30 perturbations for each WEAT
+              set, which means reembed.sh will make 150 embeddings for
+              each WEAT set. With the 15 iteration "toy" embedding, this
+              runs at about 90 seconds per embedding, for a total of
+              3.75 hours.
+[ ] Read and document the code for "approximate the differential bias"
+
+## 11-16-21
+### Morgan
+
+Very hasty changes to differential_bias.jl to support specifying WEAT
+word sets from the command line. Done with minimal knowledge of
+programming in Julia. I was not able to get the stock ArgParse package
+working, so threw together my own sloppy alternative.
+
+- Edited word_sets.jl to store word_sets in a dictionary instead of a
+  NamedTuple.
+    - Made changes to Bias.jl and tests to properly reference
+      dictionary. (differential_bias.jl never addressed WEAT sets by
+      name, simply iterating over all sets in word_sets.jl)
+- Wrote a command line parsing function to extract options from
+  command line arguments before processing positional arguments.
+  Arguments can be specified as "options" (optional arguments
+  expecting an additional argument), "flags" (optional arguments
+  that do not expect an additional argument) and "positional"
+  (expected arguments that may have default values and therefor not
+  be required.)
+    - Parsed arguments are returned in a dictionary meant to match
+      the dictionary that would have been returned by ArgParse
+- usage: julia --project src/differential\_bias.jl [_embedding.bin_]
+  [_corpus.txt_] [_output.csv_] [--wordset set1[,set2,set3,...]]
+
+If there is time, it would be good to go in and clean up and improve
+the structure of this entire script.
+
 ## 11-14-21
 ### Morgan
 
@@ -17,6 +107,7 @@ collect that information for our own experiments?
       simplewiki; a default snapshot from 2017 is used, though a more
       modern snapshot could be substituted
     - [ ] Create a process for generating a corpus from the NYT archive
+        - Rebecca exploring this using NYT article metadata API
 2. Train word embedding(s) using each experimental corpus
     - Train 10 baseline embeddings using a different random seed
     - The embed.sh script uses GloVe to create embeddings. It can be
@@ -31,11 +122,13 @@ collect that information for our own experiments?
       then averaged together for a final value.
         - [ ] What is the variance of these values? Can we get away with
           using fewer baselines?
-    - [ ] Identify mechanism for specifying WEAT vocab sets and
+    - [X] Identify mechanism for specifying WEAT vocab sets and
       abstract to command line or configuration file if necessary
         - WEAT vocab sets are hard-coded in word_sets.jl
-        - [ ] Read vocab sets from configuration file
-        - [ ] Specify vocab sets from command-line or configuration file
+        - [ ] ~~Read vocab sets from configuration file~~
+            - I think we can live with hardcoded word sets for now, as
+              long as we can choose which ones to use at runtime
+        - [X] Specify vocab sets from command-line or configuration file
     - [X] Identify mechanism for specifying baseline embeddings and
       abstract to command line or configuration file if necessary
         - Embedding and corpus used is specified on the command line,
