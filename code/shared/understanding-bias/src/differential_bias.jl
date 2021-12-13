@@ -4,7 +4,6 @@ julia --project differential_bias.jl _vectors.bin_ _corpus.txt_ _output.csv_
 """
 
 using Distributed
-using ArgParse
 @everywhere using Dates
 @everywhere using SparseArrays
 @everywhere using LinearAlgebra
