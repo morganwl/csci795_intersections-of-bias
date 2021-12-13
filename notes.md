@@ -8,7 +8,7 @@ understanding-bias. Then I need to start pulling in WEAT tests.
 
 - [X] Potentially modify nyt corpus script
 - [X] Assemble NYT corpus for GloVe
-- [ ] Train word embedding on NYT corpus (this will probably take a
+- [X] Train word embedding on NYT corpus (this will probably take a
   while, use Josephine's desktop)
 - [ ] Write README for using the various understanding-bias scripts
 - [ ] Start collating WEAT tests from as many sources as possible.
