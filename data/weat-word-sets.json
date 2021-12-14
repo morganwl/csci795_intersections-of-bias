@@ -1,0 +1,2620 @@
+{
+    "science_arts": {
+        "source": "brunet et al, 2019",
+        "link": "https://github.com/mebrunet/understanding-bias",
+        "targ1": {
+            "category": "Sciences",
+            "vocab": [
+                "science",
+                "technology",
+                "physics",
+                "chemistry",
+                "einstein",
+                "nasa",
+                "experiment",
+                "astronomy"
+            ]
+        },
+        "targ2": {
+            "category": "Arts",
+            "vocab": [
+                "poetry",
+                "art",
+                "shakespeare",
+                "dance",
+                "literature",
+                "novel",
+                "symphony",
+                "drama"
+            ]
+        },
+        "attr1": {
+            "category": "Male",
+            "vocab": [
+                "male",
+                "man",
+                "boy",
+                "brother",
+                "he",
+                "him",
+                "his",
+                "son"
+            ]
+        },
+        "attr2": {
+            "category": "Female",
+            "vocab": [
+                "female",
+                "woman",
+                "girl",
+                "sister",
+                "she",
+                "her",
+                "hers",
+                "daughter"
+            ]
+        }
+    },
+    "instruments_weapons": {
+        "source": "brunet et al, 2019",
+        "link": "https://github.com/mebrunet/understanding-bias",
+        "targ1": {
+            "category": "Instruments",
+            "vocab": [
+                "bagpipe",
+                "cello",
+                "guitar",
+                "lute",
+                "trombone",
+                "banjo",
+                "clarinet",
+                "harmonica",
+                "mandolin",
+                "trumpet",
+                "bassoon",
+                "drum",
+                "harp",
+                "oboe",
+                "tuba",
+                "bell",
+                "fiddle",
+                "harpsichord",
+                "piano",
+                "viola",
+                "bongo",
+                "flute",
+                "horn",
+                "saxophone",
+                "violin"
+            ]
+        },
+        "targ2": {
+            "category": "Weapons",
+            "vocab": [
+                "arrow",
+                "club",
+                "gun",
+                "missile",
+                "spear",
+                "axe",
+                "dagger",
+                "harpoon",
+                "pistol",
+                "sword",
+                "blade",
+                "dynamite",
+                "hatchet",
+                "rifle",
+                "tank",
+                "bomb",
+                "firearm",
+                "knife",
+                "shotgun",
+                "teargas",
+                "cannon",
+                "grenade",
+                "mace",
+                "slingshot",
+                "whip"
+            ]
+        },
+        "attr1": {
+            "category": "Pleasant",
+            "vocab": [
+                "caress",
+                "freedom",
+                "health",
+                "love",
+                "peace",
+                "cheer",
+                "friend",
+                "heaven",
+                "loyal",
+                "pleasure",
+                "diamond",
+                "gentle",
+                "honest",
+                "lucky",
+                "rainbow",
+                "diploma",
+                "gift",
+                "honor",
+                "miracle",
+                "sunrise",
+                "family",
+                "happy",
+                "laughter",
+                "paradise",
+                "vacation"
+            ]
+        },
+        "attr2": {
+            "category": "Unpleasant",
+            "vocab": [
+                "abuse",
+                "crash",
+                "filth",
+                "murder",
+                "sickness",
+                "accident",
+                "death",
+                "grief",
+                "poison",
+                "stink",
+                "assault",
+                "disaster",
+                "hatred",
+                "pollute",
+                "tragedy",
+                "divorce",
+                "jail",
+                "poverty",
+                "ugly",
+                "cancer",
+                "kill",
+                "rotten",
+                "vomit",
+                "agony",
+                "prison"
+            ]
+        }
+    },
+    "white_gender_pleasant": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "WhiteMaleNames",
+            "vocab": [
+                "John",
+                "Paul",
+                "Mike",
+                "Kevin",
+                "Steve",
+                "Greg",
+                "Jeff",
+                "Brad",
+                "Brendan",
+                "Geoffrey",
+                "Brett",
+                "Matthew",
+                "Neil"
+            ]
+        },
+        "targ2": {
+            "category": "WhiteFemaleNames",
+            "vocab": [
+                "Allison",
+                "Anne",
+                "Carrie",
+                "Emily",
+                "Jill",
+                "Laurie",
+                "Kristen",
+                "Meredith",
+                "Molly",
+                "Amy",
+                "Claire",
+                "Katie",
+                "Madeline"
+            ]
+        },
+        "attr1": {
+            "category": "Pleasant",
+            "vocab": [
+                "caress",
+                "freedom",
+                "health",
+                "love",
+                "peace",
+                "cheer",
+                "friend",
+                "heaven",
+                "loyal",
+                "pleasure",
+                "diamond",
+                "gentle",
+                "honest",
+                "lucky",
+                "rainbow",
+                "diploma",
+                "gift",
+                "honor",
+                "miracle",
+                "sunrise",
+                "family",
+                "happy",
+                "laughter",
+                "paradise",
+                "vacation"
+            ]
+        },
+        "attr2": {
+            "category": "Unpleasant",
+            "vocab": [
+                "abuse",
+                "crash",
+                "filth",
+                "murder",
+                "sickness",
+                "accident",
+                "death",
+                "grief",
+                "poison",
+                "stink",
+                "assault",
+                "disaster",
+                "hatred",
+                "pollute",
+                "tragedy",
+                "bomb",
+                "divorce",
+                "jail",
+                "poverty",
+                "ugly",
+                "cancer",
+                "evil",
+                "kill",
+                "rotten",
+                "vomit"
+            ]
+        }
+    },
+    "angry_black_woman_stereotype": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "WhiteFemaleNames",
+            "vocab": [
+                "Allison",
+                "Anne",
+                "Carrie",
+                "Emily",
+                "Jill",
+                "Laurie",
+                "Kristen",
+                "Meredith",
+                "Molly",
+                "Amy",
+                "Claire",
+                "Katie",
+                "Madeline",
+                "Katelyn",
+                "Emma"
+            ]
+        },
+        "targ2": {
+            "category": "BlackFemaleNames",
+            "vocab": [
+                "Aisha",
+                "Ebony",
+                "Keisha",
+                "Latonya",
+                "Lakisha",
+                "Latoya",
+                "Tamika",
+                "Imani",
+                "Shanice",
+                "Aaliyah",
+                "Precious",
+                "Nia",
+                "Deja",
+                "Latanya",
+                "Latisha"
+            ]
+        },
+        "attr1": {
+            "category": "NearAntonyms",
+            "vocab": [
+                "soft",
+                "quiet",
+                "compromising",
+                "rational",
+                "calm",
+                "kind",
+                "agreeable",
+                "servile",
+                "pleasant",
+                "cautious",
+                "friendly",
+                "supportive",
+                "nice",
+                "mild",
+                "demure",
+                "passive",
+                "indifferent",
+                "submissive"
+            ]
+        },
+        "attr2": {
+            "category": "AngryBlackWomanStereotype",
+            "vocab": [
+                "shrill",
+                "loud",
+                "argumentative",
+                "irrational",
+                "angry",
+                "abusive",
+                "obnoxious",
+                "controlling",
+                "nagging",
+                "brash",
+                "hostile",
+                "emasculating",
+                "mean",
+                "harsh",
+                "sassy",
+                "aggressive",
+                "opinionated",
+                "domineering"
+            ]
+        }
+    },
+    "black_white_likable": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "EuropeanAmericanNames",
+            "vocab": [
+                "Adam",
+                "Harry",
+                "Josh",
+                "Roger",
+                "Alan",
+                "Frank",
+                "Justin",
+                "Ryan",
+                "Andrew",
+                "Jack",
+                "Matthew",
+                "Stephen",
+                "Brad",
+                "Greg",
+                "Paul",
+                "Jonathan",
+                "Peter",
+                "Amanda",
+                "Courtney",
+                "Heather",
+                "Melanie",
+                "Katie",
+                "Betsy",
+                "Kristin",
+                "Nancy",
+                "Stephanie",
+                "Ellen",
+                "Lauren",
+                "Colleen",
+                "Emily",
+                "Megan",
+                "Rachel"
+            ]
+        },
+        "targ2": {
+            "category": "AfricanAmericanNames",
+            "vocab": [
+                "Alonzo",
+                "Jamel",
+                "Theo",
+                "Alphonse",
+                "Jerome",
+                "Leroy",
+                "Torrance",
+                "Darnell",
+                "Lamar",
+                "Lionel",
+                "Tyree",
+                "Deion",
+                "Lamont",
+                "Malik",
+                "Terrence",
+                "Tyrone",
+                "Lavon",
+                "Marcellus",
+                "Wardell",
+                "Nichelle",
+                "Shereen",
+                "Ebony",
+                "Latisha",
+                "Shaniqua",
+                "Jasmine",
+                "Tanisha",
+                "Tia",
+                "Lakisha",
+                "Latoya",
+                "Yolanda",
+                "Malika",
+                "Yvette"
+            ]
+        },
+        "attr1": {
+            "category": "LikableNotHostile",
+            "vocab": [
+                "agreeable",
+                "fair",
+                "honest",
+                "trustworthy",
+                "selfless",
+                "accommodating",
+                "likable",
+                "liked"
+            ]
+        },
+        "attr2": {
+            "category": "UnlikableHostile",
+            "vocab": [
+                "abrasive",
+                "conniving",
+                "manipulative",
+                "dishonest",
+                "selfish",
+                "pushy",
+                "unlikable",
+                "unliked"
+            ]
+        }
+    },
+    "black_white_competent": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "EuropeanAmericanNames",
+            "vocab": [
+                "Adam",
+                "Harry",
+                "Josh",
+                "Roger",
+                "Alan",
+                "Frank",
+                "Justin",
+                "Ryan",
+                "Andrew",
+                "Jack",
+                "Matthew",
+                "Stephen",
+                "Brad",
+                "Greg",
+                "Paul",
+                "Jonathan",
+                "Peter",
+                "Amanda",
+                "Courtney",
+                "Heather",
+                "Melanie",
+                "Katie",
+                "Betsy",
+                "Kristin",
+                "Nancy",
+                "Stephanie",
+                "Ellen",
+                "Lauren",
+                "Colleen",
+                "Emily",
+                "Megan",
+                "Rachel"
+            ]
+        },
+        "targ2": {
+            "category": "AfricanAmericanNames",
+            "vocab": [
+                "Alonzo",
+                "Jamel",
+                "Theo",
+                "Alphonse",
+                "Jerome",
+                "Leroy",
+                "Torrance",
+                "Darnell",
+                "Lamar",
+                "Lionel",
+                "Tyree",
+                "Deion",
+                "Lamont",
+                "Malik",
+                "Terrence",
+                "Tyrone",
+                "Lavon",
+                "Marcellus",
+                "Wardell",
+                "Nichelle",
+                "Shereen",
+                "Ebony",
+                "Latisha",
+                "Shaniqua",
+                "Jasmine",
+                "Tanisha",
+                "Tia",
+                "Lakisha",
+                "Latoya",
+                "Yolanda",
+                "Malika",
+                "Yvette"
+            ]
+        },
+        "attr1": {
+            "category": "CompetentAchievementOriented",
+            "vocab": [
+                "competent",
+                "productive",
+                "effective",
+                "ambitious",
+                "active",
+                "decisive",
+                "strong",
+                "tough",
+                "bold",
+                "assertive"
+            ]
+        },
+        "attr2": {
+            "category": "IncompetentNotAchievementOriented",
+            "vocab": [
+                "incompetent",
+                "unproductive",
+                "ineffective",
+                "unambitious",
+                "passive",
+                "indecisive",
+                "weak",
+                "gentle",
+                "timid",
+                "unassertive"
+            ]
+        }
+    },
+    "black_gender_pleasant": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "BlackMaleNames",
+            "vocab": [
+                "Darnell",
+                "Hakim",
+                "Jermaine",
+                "Kareem",
+                "Jamal",
+                "Leroy",
+                "Rasheed",
+                "DeShawn",
+                "DeAndre",
+                "Marquis",
+                "Terrell",
+                "Malik",
+                "Tyrone"
+            ]
+        },
+        "targ2": {
+            "category": "BlackFemaleNames",
+            "vocab": [
+                "Aisha",
+                "Ebony",
+                "Keisha",
+                "Lakisha",
+                "Latoya",
+                "Tamika",
+                "Imani",
+                "Shanice",
+                "Aaliyah",
+                "Precious",
+                "Nia",
+                "Deja",
+                "Latisha"
+            ]
+        },
+        "attr1": {
+            "category": "Pleasant",
+            "vocab": [
+                "caress",
+                "freedom",
+                "health",
+                "love",
+                "peace",
+                "cheer",
+                "friend",
+                "heaven",
+                "loyal",
+                "pleasure",
+                "diamond",
+                "gentle",
+                "honest",
+                "lucky",
+                "rainbow",
+                "diploma",
+                "gift",
+                "honor",
+                "miracle",
+                "sunrise",
+                "family",
+                "happy",
+                "laughter",
+                "paradise",
+                "vacation"
+            ]
+        },
+        "attr2": {
+            "category": "Unpleasant",
+            "vocab": [
+                "abuse",
+                "crash",
+                "filth",
+                "murder",
+                "sickness",
+                "accident",
+                "death",
+                "grief",
+                "poison",
+                "stink",
+                "assault",
+                "disaster",
+                "hatred",
+                "pollute",
+                "tragedy",
+                "bomb",
+                "divorce",
+                "jail",
+                "poverty",
+                "ugly",
+                "cancer",
+                "evil",
+                "kill",
+                "rotten",
+                "vomit"
+            ]
+        }
+    },
+    "all_gender_pleasant": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "MaleNames",
+            "vocab": [
+                "John",
+                "Paul",
+                "Mike",
+                "Kevin",
+                "Steve",
+                "Greg",
+                "Jeff",
+                "Bill"
+            ]
+        },
+        "targ2": {
+            "category": "FemaleNames",
+            "vocab": [
+                "Amy",
+                "Joan",
+                "Lisa",
+                "Sarah",
+                "Diana",
+                "Kate",
+                "Ann",
+                "Donna"
+            ]
+        },
+        "attr1": {
+            "category": "Pleasant",
+            "vocab": [
+                "caress",
+                "freedom",
+                "health",
+                "love",
+                "peace",
+                "cheer",
+                "friend",
+                "heaven",
+                "loyal",
+                "pleasure",
+                "diamond",
+                "gentle",
+                "honest",
+                "lucky",
+                "rainbow",
+                "diploma",
+                "gift",
+                "honor",
+                "miracle",
+                "sunrise",
+                "family",
+                "happy",
+                "laughter",
+                "paradise",
+                "vacation"
+            ]
+        },
+        "attr2": {
+            "category": "Unpleasant",
+            "vocab": [
+                "abuse",
+                "crash",
+                "filth",
+                "murder",
+                "sickness",
+                "accident",
+                "death",
+                "grief",
+                "poison",
+                "stink",
+                "assault",
+                "disaster",
+                "hatred",
+                "pollute",
+                "tragedy",
+                "bomb",
+                "divorce",
+                "jail",
+                "poverty",
+                "ugly",
+                "cancer",
+                "evil",
+                "kill",
+                "rotten",
+                "vomit"
+            ]
+        }
+    },
+    "black_science_arts": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "Science",
+            "vocab": [
+                "science",
+                "technology",
+                "physics",
+                "chemistry",
+                "Einstein",
+                "NASA",
+                "experiment",
+                "astronomy"
+            ]
+        },
+        "targ2": {
+            "category": "Arts",
+            "vocab": [
+                "poetry",
+                "art",
+                "Shakespeare",
+                "dance",
+                "literature",
+                "novel",
+                "symphony",
+                "drama"
+            ]
+        },
+        "attr1": {
+            "category": "EuropeanAmericanNames",
+            "vocab": [
+                "Adam",
+                "Harry",
+                "Josh",
+                "Roger",
+                "Alan",
+                "Frank",
+                "Justin",
+                "Ryan",
+                "Andrew",
+                "Jack",
+                "Matthew",
+                "Stephen",
+                "Brad",
+                "Greg",
+                "Paul",
+                "Jonathan",
+                "Peter",
+                "Amanda",
+                "Courtney",
+                "Heather",
+                "Melanie",
+                "Katie",
+                "Betsy",
+                "Kristin",
+                "Nancy",
+                "Stephanie",
+                "Ellen",
+                "Lauren",
+                "Colleen",
+                "Emily",
+                "Megan",
+                "Rachel"
+            ]
+        },
+        "attr2": {
+            "category": "AfricanAmericanNames",
+            "vocab": [
+                "Alonzo",
+                "Jamel",
+                "Theo",
+                "Alphonse",
+                "Jerome",
+                "Leroy",
+                "Torrance",
+                "Darnell",
+                "Lamar",
+                "Lionel",
+                "Tyree",
+                "Deion",
+                "Lamont",
+                "Malik",
+                "Terrence",
+                "Tyrone",
+                "Lavon",
+                "Marcellus",
+                "Wardell",
+                "Nichelle",
+                "Shereen",
+                "Ebony",
+                "Latisha",
+                "Shaniqua",
+                "Jasmine",
+                "Tanisha",
+                "Tia",
+                "Lakisha",
+                "Latoya",
+                "Yolanda",
+                "Malika",
+                "Yvette"
+            ]
+        }
+    },
+    "black_terms_pleasant_25": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "EuropeanAmericanTerms",
+            "vocab": [
+                "European American",
+                "British American",
+                "German American",
+                "Polish American",
+                "Russian American",
+                "Ukrainian American",
+                "Italian American",
+                "Portuguese American",
+                "French American",
+                "Romanian American",
+                "Greek American",
+                "Irish American",
+                "Spanish American",
+                "Bosnian American",
+                "Albanian American"
+            ]
+        },
+        "targ2": {
+            "category": "AfricanAmericanTerms",
+            "vocab": [
+                "African American",
+                "Nigerian American",
+                "Ethiopian American",
+                "Egyptian American",
+                "Ghanaian American",
+                "Kenyan American",
+                "South African American",
+                "Somali American",
+                "Liberian American",
+                "Moroccan American",
+                "Cameroonian American",
+                "Cape Verdean American",
+                "Eritrean American",
+                "Sudanese American",
+                "Sierra Leonean American"
+            ]
+        },
+        "attr1": {
+            "category": "Pleasant",
+            "vocab": [
+                "caress",
+                "freedom",
+                "health",
+                "love",
+                "peace",
+                "cheer",
+                "friend",
+                "heaven",
+                "loyal",
+                "pleasure",
+                "diamond",
+                "gentle",
+                "honest",
+                "lucky",
+                "rainbow",
+                "diploma",
+                "gift",
+                "honor",
+                "miracle",
+                "sunrise",
+                "family",
+                "happy",
+                "laughter",
+                "paradise",
+                "vacation"
+            ]
+        },
+        "attr2": {
+            "category": "Unpleasant",
+            "vocab": [
+                "abuse",
+                "crash",
+                "filth",
+                "murder",
+                "sickness",
+                "accident",
+                "death",
+                "grief",
+                "poison",
+                "stink",
+                "assault",
+                "disaster",
+                "hatred",
+                "pollute",
+                "tragedy",
+                "bomb",
+                "divorce",
+                "jail",
+                "poverty",
+                "ugly",
+                "cancer",
+                "evil",
+                "kill",
+                "rotten",
+                "vomit"
+            ]
+        }
+    },
+    "gender_terms_math_arts": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "Math",
+            "vocab": [
+                "math",
+                "algebra",
+                "geometry",
+                "calculus",
+                "equations",
+                "computation",
+                "numbers",
+                "addition"
+            ]
+        },
+        "targ2": {
+            "category": "Arts",
+            "vocab": [
+                "poetry",
+                "art",
+                "dance",
+                "literature",
+                "novel",
+                "symphony",
+                "drama",
+                "sculpture"
+            ]
+        },
+        "attr1": {
+            "category": "MaleNames",
+            "vocab": [
+                "John",
+                "Paul",
+                "Mike",
+                "Kevin",
+                "Steve",
+                "Greg",
+                "Jeff",
+                "Bill"
+            ]
+        },
+        "attr2": {
+            "category": "FemaleNames",
+            "vocab": [
+                "Amy",
+                "Joan",
+                "Lisa",
+                "Sarah",
+                "Diana",
+                "Kate",
+                "Ann",
+                "Donna"
+            ]
+        }
+    },
+    "white_male_black_female_pleasant": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "WhiteMaleNames",
+            "vocab": [
+                "John",
+                "Paul",
+                "Mike",
+                "Kevin",
+                "Steve",
+                "Greg",
+                "Jeff",
+                "Brad",
+                "Brendan",
+                "Geoffrey",
+                "Brett",
+                "Matthew",
+                "Neil"
+            ]
+        },
+        "targ2": {
+            "category": "BlackFemaleNames",
+            "vocab": [
+                "Aisha",
+                "Ebony",
+                "Keisha",
+                "Lakisha",
+                "Latoya",
+                "Tamika",
+                "Imani",
+                "Shanice",
+                "Aaliyah",
+                "Precious",
+                "Nia",
+                "Deja",
+                "Latisha"
+            ]
+        },
+        "attr1": {
+            "category": "Pleasant",
+            "vocab": [
+                "caress",
+                "freedom",
+                "health",
+                "love",
+                "peace",
+                "cheer",
+                "friend",
+                "heaven",
+                "loyal",
+                "pleasure",
+                "diamond",
+                "gentle",
+                "honest",
+                "lucky",
+                "rainbow",
+                "diploma",
+                "gift",
+                "honor",
+                "miracle",
+                "sunrise",
+                "family",
+                "happy",
+                "laughter",
+                "paradise",
+                "vacation"
+            ]
+        },
+        "attr2": {
+            "category": "Unpleasant",
+            "vocab": [
+                "abuse",
+                "crash",
+                "filth",
+                "murder",
+                "sickness",
+                "accident",
+                "death",
+                "grief",
+                "poison",
+                "stink",
+                "assault",
+                "disaster",
+                "hatred",
+                "pollute",
+                "tragedy",
+                "bomb",
+                "divorce",
+                "jail",
+                "poverty",
+                "ugly",
+                "cancer",
+                "evil",
+                "kill",
+                "rotten",
+                "vomit"
+            ]
+        }
+    },
+    "black_career": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "EuropeanAmericanNames",
+            "vocab": [
+                "Adam",
+                "Harry",
+                "Josh",
+                "Roger",
+                "Alan",
+                "Frank",
+                "Justin",
+                "Ryan",
+                "Andrew",
+                "Jack",
+                "Matthew",
+                "Stephen",
+                "Brad",
+                "Greg",
+                "Paul",
+                "Jonathan",
+                "Peter",
+                "Amanda",
+                "Courtney",
+                "Heather",
+                "Melanie",
+                "Katie",
+                "Betsy",
+                "Kristin",
+                "Nancy",
+                "Stephanie",
+                "Ellen",
+                "Lauren",
+                "Colleen",
+                "Emily",
+                "Megan",
+                "Rachel"
+            ]
+        },
+        "targ2": {
+            "category": "AfricanAmericanNames",
+            "vocab": [
+                "Alonzo",
+                "Jamel",
+                "Theo",
+                "Alphonse",
+                "Jerome",
+                "Leroy",
+                "Torrance",
+                "Darnell",
+                "Lamar",
+                "Lionel",
+                "Tyree",
+                "Deion",
+                "Lamont",
+                "Malik",
+                "Terrence",
+                "Tyrone",
+                "Lavon",
+                "Marcellus",
+                "Wardell",
+                "Nichelle",
+                "Shereen",
+                "Ebony",
+                "Latisha",
+                "Shaniqua",
+                "Jasmine",
+                "Tanisha",
+                "Tia",
+                "Lakisha",
+                "Latoya",
+                "Yolanda",
+                "Malika",
+                "Yvette"
+            ]
+        },
+        "attr1": {
+            "category": "Career",
+            "vocab": [
+                "executive",
+                "management",
+                "professional",
+                "corporation",
+                "salary",
+                "office",
+                "business",
+                "career"
+            ]
+        },
+        "attr2": {
+            "category": "Family",
+            "vocab": [
+                "home",
+                "parents",
+                "children",
+                "family",
+                "cousins",
+                "marriage",
+                "wedding",
+                "relatives"
+            ]
+        }
+    },
+    "black_terms_pleasant_8": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "EuropeanAmericanTerms",
+            "vocab": [
+                "European American",
+                "British American",
+                "German American",
+                "Polish American",
+                "Russian American",
+                "Ukrainian American",
+                "Italian American",
+                "Portuguese American",
+                "French American",
+                "Romanian American",
+                "Greek American",
+                "Irish American",
+                "Spanish American",
+                "Bosnian American",
+                "Albanian American"
+            ]
+        },
+        "targ2": {
+            "category": "AfricanAmericanTerms",
+            "vocab": [
+                "African American",
+                "Nigerian American",
+                "Ethiopian American",
+                "Egyptian American",
+                "Ghanaian American",
+                "Kenyan American",
+                "South African American",
+                "Somali American",
+                "Liberian American",
+                "Moroccan American",
+                "Cameroonian American",
+                "Cape Verdean American",
+                "Eritrean American",
+                "Sudanese American",
+                "Sierra Leonean American"
+            ]
+        },
+        "attr1": {
+            "category": "Pleasant",
+            "vocab": [
+                "joy",
+                "love",
+                "peace",
+                "wonderful",
+                "pleasure",
+                "friend",
+                "laughter",
+                "happy"
+            ]
+        },
+        "attr2": {
+            "category": "Unpleasant",
+            "vocab": [
+                "agony",
+                "terrible",
+                "horrible",
+                "nasty",
+                "evil",
+                "war",
+                "awful",
+                "failure"
+            ]
+        }
+    },
+    "black_female_pleasant": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "WhiteFemaleNames",
+            "vocab": [
+                "Allison",
+                "Anne",
+                "Carrie",
+                "Emily",
+                "Jill",
+                "Laurie",
+                "Kristen",
+                "Meredith",
+                "Molly",
+                "Amy",
+                "Claire",
+                "Katie",
+                "Madeline"
+            ]
+        },
+        "targ2": {
+            "category": "BlackFemaleNames",
+            "vocab": [
+                "Aisha",
+                "Ebony",
+                "Keisha",
+                "Lakisha",
+                "Latoya",
+                "Tamika",
+                "Imani",
+                "Shanice",
+                "Aaliyah",
+                "Precious",
+                "Nia",
+                "Deja",
+                "Latisha"
+            ]
+        },
+        "attr1": {
+            "category": "Pleasant",
+            "vocab": [
+                "caress",
+                "freedom",
+                "health",
+                "love",
+                "peace",
+                "cheer",
+                "friend",
+                "heaven",
+                "loyal",
+                "pleasure",
+                "diamond",
+                "gentle",
+                "honest",
+                "lucky",
+                "rainbow",
+                "diploma",
+                "gift",
+                "honor",
+                "miracle",
+                "sunrise",
+                "family",
+                "happy",
+                "laughter",
+                "paradise",
+                "vacation"
+            ]
+        },
+        "attr2": {
+            "category": "Unpleasant",
+            "vocab": [
+                "abuse",
+                "crash",
+                "filth",
+                "murder",
+                "sickness",
+                "accident",
+                "death",
+                "grief",
+                "poison",
+                "stink",
+                "assault",
+                "disaster",
+                "hatred",
+                "pollute",
+                "tragedy",
+                "bomb",
+                "divorce",
+                "jail",
+                "poverty",
+                "ugly",
+                "cancer",
+                "evil",
+                "kill",
+                "rotten",
+                "vomit"
+            ]
+        }
+    },
+    "black_male_pleasant": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "WhiteMaleNames",
+            "vocab": [
+                "John",
+                "Paul",
+                "Mike",
+                "Kevin",
+                "Steve",
+                "Greg",
+                "Jeff",
+                "Brad",
+                "Brendan",
+                "Geoffrey",
+                "Brett",
+                "Matthew",
+                "Neil"
+            ]
+        },
+        "targ2": {
+            "category": "BlackMaleNames",
+            "vocab": [
+                "Darnell",
+                "Hakim",
+                "Jermaine",
+                "Kareem",
+                "Jamal",
+                "Leroy",
+                "Rasheed",
+                "DeShawn",
+                "DeAndre",
+                "Marquis",
+                "Terrell",
+                "Malik",
+                "Tyrone"
+            ]
+        },
+        "attr1": {
+            "category": "Pleasant",
+            "vocab": [
+                "caress",
+                "freedom",
+                "health",
+                "love",
+                "peace",
+                "cheer",
+                "friend",
+                "heaven",
+                "loyal",
+                "pleasure",
+                "diamond",
+                "gentle",
+                "honest",
+                "lucky",
+                "rainbow",
+                "diploma",
+                "gift",
+                "honor",
+                "miracle",
+                "sunrise",
+                "family",
+                "happy",
+                "laughter",
+                "paradise",
+                "vacation"
+            ]
+        },
+        "attr2": {
+            "category": "Unpleasant",
+            "vocab": [
+                "abuse",
+                "crash",
+                "filth",
+                "murder",
+                "sickness",
+                "accident",
+                "death",
+                "grief",
+                "poison",
+                "stink",
+                "assault",
+                "disaster",
+                "hatred",
+                "pollute",
+                "tragedy",
+                "bomb",
+                "divorce",
+                "jail",
+                "poverty",
+                "ugly",
+                "cancer",
+                "evil",
+                "kill",
+                "rotten",
+                "vomit"
+            ]
+        }
+    },
+    "mental_illness_permanent": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "MentalDisease",
+            "vocab": [
+                "sad",
+                "hopeless",
+                "gloomy",
+                "tearful",
+                "miserable",
+                "depressed"
+            ]
+        },
+        "targ2": {
+            "category": "PhysicalDisease",
+            "vocab": [
+                "sick",
+                "illness",
+                "influenza",
+                "disease",
+                "virus",
+                "cancer"
+            ]
+        },
+        "attr1": {
+            "category": "Temporary",
+            "vocab": [
+                "impermanent",
+                "unstable",
+                "variable",
+                "fleeting",
+                "short-term",
+                "brief",
+                "occasional"
+            ]
+        },
+        "attr2": {
+            "category": "Permanent",
+            "vocab": [
+                "stable",
+                "always",
+                "constant",
+                "persistent",
+                "chronic",
+                "prolonged",
+                "forever"
+            ]
+        }
+    },
+    "gender_likeable": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "Male",
+            "vocab": [
+                "John",
+                "Paul",
+                "Mike",
+                "Kevin",
+                "Steve",
+                "Greg",
+                "Jeff",
+                "Bill"
+            ]
+        },
+        "targ2": {
+            "category": "Female",
+            "vocab": [
+                "Amy",
+                "Joan",
+                "Lisa",
+                "Sarah",
+                "Diana",
+                "Kate",
+                "Ann",
+                "Donna"
+            ]
+        },
+        "attr1": {
+            "category": "LikableNotHostile",
+            "vocab": [
+                "agreeable",
+                "fair",
+                "honest",
+                "trustworthy",
+                "selfless",
+                "accommodating",
+                "likable",
+                "liked"
+            ]
+        },
+        "attr2": {
+            "category": "UnlikableHostile",
+            "vocab": [
+                "abrasive",
+                "conniving",
+                "manipulative",
+                "dishonest",
+                "selfish",
+                "pushy",
+                "unlikable",
+                "unliked"
+            ]
+        }
+    },
+    "black_pleasant_8": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "EuropeanAmericanNames",
+            "vocab": [
+                "Brad",
+                "Brendan",
+                "Geoffrey",
+                "Greg",
+                "Brett",
+                "Matthew",
+                "Neil",
+                "Todd",
+                "Allison",
+                "Anne",
+                "Carrie",
+                "Emily",
+                "Jill",
+                "Laurie",
+                "Meredith",
+                "Sarah"
+            ]
+        },
+        "targ2": {
+            "category": "AfricanAmericanNames",
+            "vocab": [
+                "Darnell",
+                "Hakim",
+                "Jermaine",
+                "Kareem",
+                "Jamal",
+                "Leroy",
+                "Rasheed",
+                "Tyrone",
+                "Aisha",
+                "Ebony",
+                "Keisha",
+                "Kenya",
+                "Lakisha",
+                "Latoya",
+                "Tamika",
+                "Tanisha"
+            ]
+        },
+        "attr1": {
+            "category": "Pleasant",
+            "vocab": [
+                "joy",
+                "love",
+                "peace",
+                "wonderful",
+                "pleasure",
+                "friend",
+                "laughter",
+                "happy"
+            ]
+        },
+        "attr2": {
+            "category": "Unpleasant",
+            "vocab": [
+                "agony",
+                "terrible",
+                "horrible",
+                "nasty",
+                "evil",
+                "war",
+                "awful",
+                "failure"
+            ]
+        }
+    },
+    "gender_math_arts": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "Math",
+            "vocab": [
+                "math",
+                "algebra",
+                "geometry",
+                "calculus",
+                "equations",
+                "computation",
+                "numbers",
+                "addition"
+            ]
+        },
+        "targ2": {
+            "category": "Arts",
+            "vocab": [
+                "poetry",
+                "art",
+                "dance",
+                "literature",
+                "novel",
+                "symphony",
+                "drama",
+                "sculpture"
+            ]
+        },
+        "attr1": {
+            "category": "MaleTerms",
+            "vocab": [
+                "male",
+                "man",
+                "boy",
+                "brother",
+                "he",
+                "him",
+                "his",
+                "son"
+            ]
+        },
+        "attr2": {
+            "category": "FemaleTerms",
+            "vocab": [
+                "female",
+                "woman",
+                "girl",
+                "sister",
+                "she",
+                "her",
+                "hers",
+                "daughter"
+            ]
+        }
+    },
+    "angry_black_woman_stereotype_b": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "WhiteFemaleTerms",
+            "vocab": [
+                "white female",
+                "white woman",
+                "white girl",
+                "fair-skinned woman"
+            ]
+        },
+        "targ2": {
+            "category": "BlackFemaleTerms",
+            "vocab": [
+                "black female",
+                "black woman",
+                "black girl",
+                "woman of color"
+            ]
+        },
+        "attr1": {
+            "category": "NearAntonyms",
+            "vocab": [
+                "soft",
+                "quiet",
+                "compromising",
+                "rational",
+                "calm",
+                "kind",
+                "agreeable",
+                "servile",
+                "pleasant",
+                "cautious",
+                "friendly",
+                "supportive",
+                "nice",
+                "mild",
+                "demure",
+                "passive",
+                "indifferent",
+                "submissive"
+            ]
+        },
+        "attr2": {
+            "category": "AngryBlackWomanStereotype",
+            "vocab": [
+                "shrill",
+                "loud",
+                "argumentative",
+                "irrational",
+                "angry",
+                "abusive",
+                "obnoxious",
+                "controlling",
+                "nagging",
+                "brash",
+                "hostile",
+                "emasculating",
+                "mean",
+                "harsh",
+                "sassy",
+                "aggressive",
+                "opinionated",
+                "domineering"
+            ]
+        }
+    },
+    "black_pleasant_32": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "EuropeanAmericanNames",
+            "vocab": [
+                "Adam",
+                "Harry",
+                "Josh",
+                "Roger",
+                "Alan",
+                "Frank",
+                "Justin",
+                "Ryan",
+                "Andrew",
+                "Jack",
+                "Matthew",
+                "Stephen",
+                "Brad",
+                "Greg",
+                "Paul",
+                "Jonathan",
+                "Peter",
+                "Amanda",
+                "Courtney",
+                "Heather",
+                "Melanie",
+                "Katie",
+                "Betsy",
+                "Kristin",
+                "Nancy",
+                "Stephanie",
+                "Ellen",
+                "Lauren",
+                "Colleen",
+                "Emily",
+                "Megan",
+                "Rachel"
+            ]
+        },
+        "targ2": {
+            "category": "AfricanAmericanNames",
+            "vocab": [
+                "Alonzo",
+                "Jamel",
+                "Theo",
+                "Alphonse",
+                "Jerome",
+                "Leroy",
+                "Torrance",
+                "Darnell",
+                "Lamar",
+                "Lionel",
+                "Tyree",
+                "Deion",
+                "Lamont",
+                "Malik",
+                "Terrence",
+                "Tyrone",
+                "Lavon",
+                "Marcellus",
+                "Wardell",
+                "Nichelle",
+                "Shereen",
+                "Ebony",
+                "Latisha",
+                "Shaniqua",
+                "Jasmine",
+                "Tanisha",
+                "Tia",
+                "Lakisha",
+                "Latoya",
+                "Yolanda",
+                "Malika",
+                "Yvette"
+            ]
+        },
+        "attr1": {
+            "category": "Pleasant",
+            "vocab": [
+                "caress",
+                "freedom",
+                "health",
+                "love",
+                "peace",
+                "cheer",
+                "friend",
+                "heaven",
+                "loyal",
+                "pleasure",
+                "diamond",
+                "gentle",
+                "honest",
+                "lucky",
+                "rainbow",
+                "diploma",
+                "gift",
+                "honor",
+                "miracle",
+                "sunrise",
+                "family",
+                "happy",
+                "laughter",
+                "paradise",
+                "vacation"
+            ]
+        },
+        "attr2": {
+            "category": "Unpleasant",
+            "vocab": [
+                "abuse",
+                "crash",
+                "filth",
+                "murder",
+                "sickness",
+                "accident",
+                "death",
+                "grief",
+                "poison",
+                "stink",
+                "assault",
+                "disaster",
+                "hatred",
+                "pollute",
+                "tragedy",
+                "bomb",
+                "divorce",
+                "jail",
+                "poverty",
+                "ugly",
+                "cancer",
+                "evil",
+                "kill",
+                "rotten",
+                "vomit"
+            ]
+        }
+    },
+    "young_pleasant": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "YoungPeoplesNames",
+            "vocab": [
+                "Tiffany",
+                "Michelle",
+                "Cindy",
+                "Kristy",
+                "Brad",
+                "Eric",
+                "Joey",
+                "Billy"
+            ]
+        },
+        "targ2": {
+            "category": "OldPeoplesNames",
+            "vocab": [
+                "Ethel",
+                "Bernice",
+                "Gertrude",
+                "Agnes",
+                "Cecil",
+                "Wilbert",
+                "Mortimer",
+                "Edgar"
+            ]
+        },
+        "attr1": {
+            "category": "Pleasant",
+            "vocab": [
+                "joy",
+                "love",
+                "peace",
+                "wonderful",
+                "pleasure",
+                "friend",
+                "laughter",
+                "happy"
+            ]
+        },
+        "attr2": {
+            "category": "Unpleasant",
+            "vocab": [
+                "agony",
+                "terrible",
+                "horrible",
+                "nasty",
+                "evil",
+                "war",
+                "awful",
+                "failure"
+            ]
+        }
+    },
+    "gender_term_competent": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "MaleTerms",
+            "vocab": [
+                "male",
+                "man",
+                "boy",
+                "brother",
+                "he",
+                "him",
+                "his",
+                "son"
+            ]
+        },
+        "targ2": {
+            "category": "FemaleTerms",
+            "vocab": [
+                "female",
+                "woman",
+                "girl",
+                "sister",
+                "she",
+                "her",
+                "hers",
+                "daughter"
+            ]
+        },
+        "attr1": {
+            "category": "Career",
+            "vocab": [
+                "executive",
+                "management",
+                "professional",
+                "corporation",
+                "salary",
+                "office",
+                "business",
+                "career"
+            ]
+        },
+        "attr2": {
+            "category": "Family",
+            "vocab": [
+                "home",
+                "parents",
+                "children",
+                "family",
+                "cousins",
+                "marriage",
+                "wedding",
+                "relatives"
+            ]
+        }
+    },
+    "gender_career": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "MaleNames",
+            "vocab": [
+                "John",
+                "Paul",
+                "Mike",
+                "Kevin",
+                "Steve",
+                "Greg",
+                "Jeff",
+                "Bill"
+            ]
+        },
+        "targ2": {
+            "category": "FemaleNames",
+            "vocab": [
+                "Amy",
+                "Joan",
+                "Lisa",
+                "Sarah",
+                "Diana",
+                "Kate",
+                "Ann",
+                "Donna"
+            ]
+        },
+        "attr1": {
+            "category": "Career",
+            "vocab": [
+                "executive",
+                "management",
+                "professional",
+                "corporation",
+                "salary",
+                "office",
+                "business",
+                "career"
+            ]
+        },
+        "attr2": {
+            "category": "Family",
+            "vocab": [
+                "home",
+                "parents",
+                "children",
+                "family",
+                "cousins",
+                "marriage",
+                "wedding",
+                "relatives"
+            ]
+        }
+    },
+    "black_likable": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "EuropeanAmericanNames",
+            "vocab": [
+                "Adam",
+                "Harry",
+                "Josh",
+                "Roger",
+                "Alan",
+                "Frank",
+                "Justin",
+                "Ryan",
+                "Andrew",
+                "Jack",
+                "Matthew",
+                "Stephen",
+                "Brad",
+                "Greg",
+                "Paul",
+                "Jonathan",
+                "Peter",
+                "Amanda",
+                "Courtney",
+                "Heather",
+                "Melanie",
+                "Katie",
+                "Betsy",
+                "Kristin",
+                "Nancy",
+                "Stephanie",
+                "Ellen",
+                "Lauren",
+                "Colleen",
+                "Emily",
+                "Megan",
+                "Rachel"
+            ]
+        },
+        "targ2": {
+            "category": "AfricanAmericanNames",
+            "vocab": [
+                "Alonzo",
+                "Jamel",
+                "Theo",
+                "Alphonse",
+                "Jerome",
+                "Leroy",
+                "Torrance",
+                "Darnell",
+                "Lamar",
+                "Lionel",
+                "Tyree",
+                "Deion",
+                "Lamont",
+                "Malik",
+                "Terrence",
+                "Tyrone",
+                "Lavon",
+                "Marcellus",
+                "Wardell",
+                "Nichelle",
+                "Shereen",
+                "Ebony",
+                "Latisha",
+                "Shaniqua",
+                "Jasmine",
+                "Tanisha",
+                "Tia",
+                "Lakisha",
+                "Latoya",
+                "Yolanda",
+                "Malika",
+                "Yvette"
+            ]
+        },
+        "attr1": {
+            "category": "LikableNotHostile",
+            "vocab": [
+                "agreeable",
+                "fair",
+                "honest",
+                "trustworthy",
+                "selfless",
+                "accommodating",
+                "likable",
+                "liked"
+            ]
+        },
+        "attr2": {
+            "category": "UnlikableHostile",
+            "vocab": [
+                "abrasive",
+                "conniving",
+                "manipulative",
+                "dishonest",
+                "selfish",
+                "pushy",
+                "unlikable",
+                "unliked"
+            ]
+        }
+    },
+    "gender_competent": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "MaleNames",
+            "vocab": [
+                "John",
+                "Paul",
+                "Mike",
+                "Kevin",
+                "Steve",
+                "Greg",
+                "Jeff",
+                "Bill"
+            ]
+        },
+        "targ2": {
+            "category": "FemaleNames",
+            "vocab": [
+                "Amy",
+                "Joan",
+                "Lisa",
+                "Sarah",
+                "Diana",
+                "Kate",
+                "Ann",
+                "Donna"
+            ]
+        },
+        "attr1": {
+            "category": "CompetentAchievementOriented",
+            "vocab": [
+                "competent",
+                "productive",
+                "effective",
+                "ambitious",
+                "active",
+                "decisive",
+                "strong",
+                "tough",
+                "bold",
+                "assertive"
+            ]
+        },
+        "attr2": {
+            "category": "IncompetentNotAchievementOriented",
+            "vocab": [
+                "incompetent",
+                "unproductive",
+                "ineffective",
+                "unambitious",
+                "passive",
+                "indecisive",
+                "weak",
+                "gentle",
+                "timid",
+                "unassertive"
+            ]
+        }
+    },
+    "black_competent": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "EuropeanAmericanNames",
+            "vocab": [
+                "Adam",
+                "Harry",
+                "Josh",
+                "Roger",
+                "Alan",
+                "Frank",
+                "Justin",
+                "Ryan",
+                "Andrew",
+                "Jack",
+                "Matthew",
+                "Stephen",
+                "Brad",
+                "Greg",
+                "Paul",
+                "Jonathan",
+                "Peter",
+                "Amanda",
+                "Courtney",
+                "Heather",
+                "Melanie",
+                "Katie",
+                "Betsy",
+                "Kristin",
+                "Nancy",
+                "Stephanie",
+                "Ellen",
+                "Lauren",
+                "Colleen",
+                "Emily",
+                "Megan",
+                "Rachel"
+            ]
+        },
+        "targ2": {
+            "category": "AfricanAmericanNames",
+            "vocab": [
+                "Alonzo",
+                "Jamel",
+                "Theo",
+                "Alphonse",
+                "Jerome",
+                "Leroy",
+                "Torrance",
+                "Darnell",
+                "Lamar",
+                "Lionel",
+                "Tyree",
+                "Deion",
+                "Lamont",
+                "Malik",
+                "Terrence",
+                "Tyrone",
+                "Lavon",
+                "Marcellus",
+                "Wardell",
+                "Nichelle",
+                "Shereen",
+                "Ebony",
+                "Latisha",
+                "Shaniqua",
+                "Jasmine",
+                "Tanisha",
+                "Tia",
+                "Lakisha",
+                "Latoya",
+                "Yolanda",
+                "Malika",
+                "Yvette"
+            ]
+        },
+        "attr1": {
+            "category": "CompetentAchievementOriented",
+            "vocab": [
+                "competent",
+                "productive",
+                "effective",
+                "ambitious",
+                "active",
+                "decisive",
+                "strong",
+                "tough",
+                "bold",
+                "assertive"
+            ]
+        },
+        "attr2": {
+            "category": "IncompetentNotAchievementOriented",
+            "vocab": [
+                "incompetent",
+                "unproductive",
+                "ineffective",
+                "unambitious",
+                "passive",
+                "indecisive",
+                "weak",
+                "gentle",
+                "timid",
+                "unassertive"
+            ]
+        }
+    },
+    "gender_occupations": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "MaleNames",
+            "vocab": [
+                "John",
+                "Paul",
+                "Mike",
+                "Kevin",
+                "Steve",
+                "Greg",
+                "Jeff",
+                "Brad",
+                "Brendan",
+                "Geoffrey",
+                "Brett",
+                "Matthew",
+                "Neil",
+                "Darnell",
+                "Hakim",
+                "Jermaine",
+                "Kareem",
+                "Jamal",
+                "Leroy",
+                "Rasheed",
+                "DeShawn",
+                "DeAndre",
+                "Marquis",
+                "Terrell",
+                "Malik",
+                "Tyrone"
+            ]
+        },
+        "targ2": {
+            "category": "FemaleNames",
+            "vocab": [
+                "Allison",
+                "Anne",
+                "Carrie",
+                "Emily",
+                "Jill",
+                "Laurie",
+                "Kristen",
+                "Meredith",
+                "Molly",
+                "Amy",
+                "Claire",
+                "Katie",
+                "Madeline",
+                "Aisha",
+                "Ebony",
+                "Keisha",
+                "Lakisha",
+                "Latoya",
+                "Tamika",
+                "Imani",
+                "Shanice",
+                "Aaliyah",
+                "Precious",
+                "Nia",
+                "Deja",
+                "Latisha"
+            ]
+        },
+        "attr1": {
+            "category": "MaleOccupations",
+            "vocab": [
+                "driver",
+                "supervisor",
+                "janitor",
+                "mover",
+                "laborer",
+                "construction",
+                "worker",
+                "chief",
+                "developer",
+                "carpenter",
+                "manager",
+                "lawyer",
+                "farmer",
+                "salesperson",
+                "physician",
+                "guard",
+                "analyst",
+                "mechanic",
+                "sheriff",
+                "ceo"
+            ]
+        },
+        "attr2": {
+            "category": "FemaleOccupations",
+            "vocab": [
+                "attendant",
+                "cashier",
+                "teacher",
+                "nurse",
+                "assistant",
+                "secretary",
+                "auditor",
+                "cleaner",
+                "receptionist",
+                "clerk",
+                "counselor",
+                "designer",
+                "hairdresser",
+                "writer",
+                "housekeeper",
+                "baker",
+                "accountant",
+                "editor",
+                "librarian",
+                "tailor"
+            ]
+        }
+    },
+    "gender_likable": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "MaleNames",
+            "vocab": [
+                "John",
+                "Paul",
+                "Mike",
+                "Kevin",
+                "Steve",
+                "Greg",
+                "Jeff",
+                "Bill"
+            ]
+        },
+        "targ2": {
+            "category": "FemaleNames",
+            "vocab": [
+                "Amy",
+                "Joan",
+                "Lisa",
+                "Sarah",
+                "Diana",
+                "Kate",
+                "Ann",
+                "Donna"
+            ]
+        },
+        "attr1": {
+            "category": "LikableNotHostile",
+            "vocab": [
+                "agreeable",
+                "fair",
+                "honest",
+                "trustworthy",
+                "selfless",
+                "accommodating",
+                "likable",
+                "liked"
+            ]
+        },
+        "attr2": {
+            "category": "UnlikableHostile",
+            "vocab": [
+                "abrasive",
+                "conniving",
+                "manipulative",
+                "dishonest",
+                "selfish",
+                "pushy",
+                "unlikable",
+                "unliked"
+            ]
+        }
+    },
+    "gender_science_arts": {
+        "source": "Tan et al, 2019",
+        "link": "https://github.com/tanyichern/social-biases-contextualized",
+        "targ1": {
+            "category": "Science",
+            "vocab": [
+                "science",
+                "technology",
+                "physics",
+                "chemistry",
+                "Einstein",
+                "NASA",
+                "experiment",
+                "astronomy"
+            ]
+        },
+        "targ2": {
+            "category": "Arts",
+            "vocab": [
+                "poetry",
+                "art",
+                "Shakespeare",
+                "dance",
+                "literature",
+                "novel",
+                "symphony",
+                "drama"
+            ]
+        },
+        "attr1": {
+            "category": "MaleNames",
+            "vocab": [
+                "John",
+                "Paul",
+                "Mike",
+                "Kevin",
+                "Steve",
+                "Greg",
+                "Jeff",
+                "Bill"
+            ]
+        },
+        "attr2": {
+            "category": "FemaleNames",
+            "vocab": [
+                "Amy",
+                "Joan",
+                "Lisa",
+                "Sarah",
+                "Diana",
+                "Kate",
+                "Ann",
+                "Donna"
+            ]
+        }
+    }
+}

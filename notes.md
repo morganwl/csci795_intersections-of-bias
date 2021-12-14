@@ -1,5 +1,28 @@
 # csci795: project notes
 
+## 12-13-21
+### Morgan
+
+I have started gathering WEAT tests from a variety of locations across
+the internet. In the process, I have turned over a bunch of new research
+that might be good to read. There is the risk that it will make us feel
+foolish in our own goals.
+
+Many of the sets are duplicates, and others are not entirely in the
+format needed for our project. I came across Sentence Embedding
+Association Tests, and those are quite interesting, but for another
+time!
+
+I've collected my unorganized findings in weat.txt. Some are references
+to supllemental files. I have done my best to keep links inline, as well
+as adding any websites or repos to the Zotero library.
+
+- [X] Gather a bunch of WEAT sets
+- [X] Organize WEAT sets
+- [X] Collate WEAT sets in json file
+- [ ] Convert WEAT sets from json to Julia (using a quick python script)
+  or adapt Julia script to load tests from a json file.
+
 ## 12-12-21
 ### Morgan
 
@@ -10,8 +33,8 @@ understanding-bias. Then I need to start pulling in WEAT tests.
 - [X] Assemble NYT corpus for GloVe
 - [X] Train word embedding on NYT corpus (this will probably take a
   while, use Josephine's desktop)
-- [ ] Write README for using the various understanding-bias scripts
-- [ ] Start collating WEAT tests from as many sources as possible.
+- [ ] ~~Write README for using the various understanding-bias scripts~~
+- [X] Start collating WEAT tests from as many sources as possible.
 
 ## 11-26-21
 ### Morgan
