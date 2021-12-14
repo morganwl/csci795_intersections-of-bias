@@ -1,19 +1,50 @@
 module Bias
 
+using JSON
 using LinearAlgebra
 using Statistics
 using Random
 using SparseArrays
 
-include("word_sets.jl")
+# include("word_sets.jl")
+const WEAT_WORD_SETS_JSON = "../../data/weat-word-sets.json"
 
+struct VocabNotFoundException <: Exception end
+
+function read_word_sets()
+    f = open(WEAT_WORD_SETS_JSON, "r")
+    weat_word_sets = JSON.parse(f)
+    close(f)
+    return weat_word_sets
+end
+
+WEAT_WORD_SETS = read_word_sets()
 export WEAT_WORD_SETS
 
+function words2indices(words, vocab)
+    """Given a list of words and a vocab array, returns the index of
+    each word in the vocab array."""
+    indices = []
+    for w in words
+        try
+            push!(indices,
+                    vocab[lowercase(w)].index)
+        catch e
+            if isa(e, KeyError)
+                println("Warning: $w not found in vocab.")
+            end
+            throw(e)
+        end
+    end
+    return indices
+end
 
-function get_weat_idx_set(word_set::NamedTuple, vocab::Dict)
-    words2indices(words) = [vocab[w].index for w in words if w in keys(vocab)]
-    return (S=words2indices(word_set.S), T=words2indices(word_set.T),
-            A=words2indices(word_set.A), B=words2indices(word_set.B))
+
+function get_weat_idx_set(word_set::Dict, vocab::Dict)
+    return (S=words2indices(word_set["targ1"]["vocab"], vocab),
+            T=words2indices(word_set["targ2"]["vocab"], vocab),
+            A=words2indices(word_set["attr1"]["vocab"], vocab),
+            B=words2indices(word_set["attr2"]["vocab"], vocab))
 end
 
 

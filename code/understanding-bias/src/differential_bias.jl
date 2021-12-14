@@ -163,9 +163,27 @@ end
     flush(stdout)
 end
 
-function parse_args(args)
+function build_word_sets(vocab, wordsets)
+    """Takes a list of wordset keys and creates WEAT sets (named tuple
+    containing S, T, A, B sets) referencing vocab by index."""
+    weat_idx_sets = []
+    for word_set in wordsets
+        try
+            push!(weat_idx_sets,
+                    Bias.get_weat_idx_set(Bias.WEAT_WORD_SETS[word_set],
+                                         vocab))
+        catch e
+            if isa(e, KeyError)
+                println("Ignoring $word_set because of missing vocab.")
+            else
+                throw(e)
+            end
+        end
+    end
+    all_weat_indices = unique([i for set in weat_idx_sets for inds in
+                               set for i in inds])
+    return weat_idx_sets, all_weat_indices
 end
-
 
 function main()
     # Read command-line arguments
@@ -187,19 +205,30 @@ function main()
     println("Embedding: $(M.embedding_path) ($(M.D) dimensions)")
     println("Corpus: $(corpus.corpus_path) ($(corpus.num_words) tokens, $(corpus.num_documents) docs)")
 
+    if "wordset" in keys(parsed_args)
+        wordsets = [strip(wordset) for wordset in split(parsed_args["wordset"],
+                                                        ",")]
+        weat_idx_sets, all_weat_indices = build_word_sets(M.vocab, wordsets)
+    else
+        weat_idx_sets, all_weat_indices = build_word_sets(M.vocab,
+                                                          keys(Bias.WEAT_WORD_SETS))
+    end
+    
     # WEAT BIAS
     # TO-DO: Specify word sets in configuration file
-    if "wordset" in keys(parsed_args)
-        println("Processing for wordsets", parsed_args["wordset"])
-        sets = split(parsed_args["wordset"], ",")
-        weat_idx_sets = [Bias.get_weat_idx_set(Bias.WEAT_WORD_SETS[strip(set)], M.vocab) for set in sets]
-    else
-        weat_idx_sets = [Bias.get_weat_idx_set(set, M.vocab) for set in values(Bias.WEAT_WORD_SETS)]
-    end
-    all_weat_indices = unique([i for set in weat_idx_sets for inds in set for i in inds])
+    # if "wordset" in keys(parsed_args)
+    #     println("Processing for wordsets", parsed_args["wordset"])
+    #     sets = split(parsed_args["wordset"], ",")
+    #     weat_idx_sets = [Bias.get_weat_idx_set(Bias.WEAT_WORD_SETS[strip(set)], M.vocab) for set in sets]
+    # else
+    #     weat_idx_sets = [Bias.get_weat_idx_set(set, M.vocab) for set in
+    #                      values(Bias.WEAT_WORD_SETS)]
+    # end
 
     # Print effect sizes and p-values for unperturbed embedding
+    println('.')
     effect_sizes = [Bias.effect_size(M.W, set) for set in weat_idx_sets]
+    println('.')
     p_values = [Bias.p_value(M.W, set) for set in weat_idx_sets]
     println("WEAT effect sizes: $effect_sizes")
     println("WEAT p-values: $p_values")

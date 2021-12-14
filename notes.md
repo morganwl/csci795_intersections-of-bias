@@ -1,5 +1,13 @@
 # csci795: project notes
 
+## 12-14-21
+### Morgan
+
+I built out the list of WEAT sets from the Tan paper and modified
+Bias.jl to pull WEAT sets from a JSON document instead of a hardcoded
+Julia script. I might need to update the other Julia programs if they
+ever reference the WEAT_WORD_SETS directly.
+
 ## 12-13-21
 ### Morgan
 
@@ -20,7 +28,7 @@ as adding any websites or repos to the Zotero library.
 - [X] Gather a bunch of WEAT sets
 - [X] Organize WEAT sets
 - [X] Collate WEAT sets in json file
-- [ ] Convert WEAT sets from json to Julia (using a quick python script)
+- [X] Convert WEAT sets from json to Julia (using a quick python script)
   or adapt Julia script to load tests from a json file.
 
 ## 12-12-21
