@@ -104,12 +104,11 @@ function queue_jobs(corpus, job_channel, job_list)
 end
 
 
-function handle_results(out_file, results, num_jobs)
+function handle_results(out_file, results, num_jobs, wordsets)
     println("$(now()) - Started handling results.")
     println("Outfile: $(abspath(out_file))")
     i::Int64 = 1
-    num_biases = length(Bias.WEAT_WORD_SETS)
-    headers = vcat(["pid", "doc_num"], ["ΔBIF_$x" for x in 1:num_biases])
+    headers = vcat(["pid", "doc_num"], ["ΔBIF_$x" for x in wordsets])
     open(out_file, "w") do f
         println(f, join(headers, ", "))
         while (i <= num_jobs)
@@ -205,26 +204,15 @@ function main()
     println("Embedding: $(M.embedding_path) ($(M.D) dimensions)")
     println("Corpus: $(corpus.corpus_path) ($(corpus.num_words) tokens, $(corpus.num_documents) docs)")
 
+    # WEAT BIAS
     if "wordset" in keys(parsed_args)
         wordsets = [strip(wordset) for wordset in split(parsed_args["wordset"],
                                                         ",")]
-        weat_idx_sets, all_weat_indices = build_word_sets(M.vocab, wordsets)
     else
-        weat_idx_sets, all_weat_indices = build_word_sets(M.vocab,
-                                                          keys(Bias.WEAT_WORD_SETS))
+        wordsets = keys(Bias.WEAT_WORD_SETS)
     end
+    weat_idx_sets, all_weat_indices = build_word_sets(M.vocab, wordsets)
     
-    # WEAT BIAS
-    # TO-DO: Specify word sets in configuration file
-    # if "wordset" in keys(parsed_args)
-    #     println("Processing for wordsets", parsed_args["wordset"])
-    #     sets = split(parsed_args["wordset"], ",")
-    #     weat_idx_sets = [Bias.get_weat_idx_set(Bias.WEAT_WORD_SETS[strip(set)], M.vocab) for set in sets]
-    # else
-    #     weat_idx_sets = [Bias.get_weat_idx_set(set, M.vocab) for set in
-    #                      values(Bias.WEAT_WORD_SETS)]
-    # end
-
     # Print effect sizes and p-values for unperturbed embedding
     println('.')
     effect_sizes = [Bias.effect_size(M.W, set) for set in weat_idx_sets]
@@ -259,7 +247,7 @@ function main()
             @async remote_do(run_worker, p, jobs, results, M, X, inv_hessians, gradients, weat_idx_sets, effect_sizes)
         end
 
-        @async handle_results(out_file, results, length(job_list))
+        @async handle_results(out_file, results, length(job_list), wordsets)
     end
 
     close(jobs)
