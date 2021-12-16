@@ -84,7 +84,7 @@ function pre_compute(M, X, word_indices)
 end
 
 
-function make_job_list(corpus; first=1, last=2^62)
+function make_job_list(corpus, first=1, last=2^62)
     # Eventually should allow prcessing subsets
     return first:min(corpus.num_documents, last)
 end
