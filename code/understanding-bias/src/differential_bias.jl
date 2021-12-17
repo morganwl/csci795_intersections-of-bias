@@ -128,19 +128,21 @@ function handle_results(out_file, results, num_jobs, wordsets)
 end
 
 
-@everywhere function percent_diff_bias(document, M, X, inv_hessians, gradients, weat_idx_sets,
-                           effect_sizes)
+@everywhere function percent_diff_bias(document, M, X, inv_hessians,
+        gradients, weat_idx_sets, effect_sizes)
     # Make the IF approximation
-    target_indices = unique([i for set in weat_idx_sets for inds in set for i in inds])
-    deltas = GloVe.compute_IF_deltas(document, M, X, target_indices, inv_hessians, gradients)
+    target_indices = unique([i for set in weat_idx_sets for inds in set
+                             for i in inds])
+    deltas = GloVe.compute_IF_deltas(document, M, X, target_indices,
+                                     inv_hessians, gradients)
     # Compute the bias change
     B̃ = [Bias.effect_size(M.W, set, deltas) for set in weat_idx_sets]
     return [100 * (b - b̃) / b for (b, b̃) in zip(effect_sizes, B̃)]
 end
 
 
-@everywhere function run_worker(jobs, results, M, X, inv_hessians, gradients, weat_idx_sets,
-                            effect_sizes)
+@everywhere function run_worker(jobs, results, M, X, inv_hessians,
+        gradients, weat_idx_sets, effect_sizes)
     pid = myid()
     println(stdout, "Starting worker $(pid)")
     flush(stdout)
@@ -154,8 +156,8 @@ end
             break # Channel has been closed
         end
 
-        ΔBIF = percent_diff_bias(doc, M, X, inv_hessians, gradients, weat_idx_sets,
-                                   effect_sizes)
+        ΔBIF = percent_diff_bias(doc, M, X, inv_hessians, gradients,
+                                 weat_idx_sets, effect_sizes)
         put!(results, (pid, doc_num, ΔBIF))
     end
     println(stdout, "Ending worker $(pid)")
@@ -166,11 +168,13 @@ function build_word_sets(vocab, wordsets)
     """Takes a list of wordset keys and creates WEAT sets (named tuple
     containing S, T, A, B sets) referencing vocab by index."""
     weat_idx_sets = []
+    wordsets_actual = []
     for word_set in wordsets
         try
             push!(weat_idx_sets,
                     Bias.get_weat_idx_set(Bias.WEAT_WORD_SETS[word_set],
                                          vocab))
+            push!(wordsets_actual, word_set)
         catch e
             if isa(e, KeyError)
                 println("Ignoring $word_set because of missing vocab.")
@@ -181,7 +185,7 @@ function build_word_sets(vocab, wordsets)
     end
     all_weat_indices = unique([i for set in weat_idx_sets for inds in
                                set for i in inds])
-    return weat_idx_sets, all_weat_indices
+    return weat_idx_sets, all_weat_indices, wordsets_actual
 end
 
 function main()
@@ -211,7 +215,7 @@ function main()
     else
         wordsets = keys(Bias.WEAT_WORD_SETS)
     end
-    weat_idx_sets, all_weat_indices = build_word_sets(M.vocab, wordsets)
+    weat_idx_sets, all_weat_indices, wordsets_actual = build_word_sets(M.vocab, wordsets)
     
     # Print effect sizes and p-values for unperturbed embedding
     println('.')

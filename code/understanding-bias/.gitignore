@@ -15,3 +15,8 @@ push
 
 # OS
 .DS_store
+
+# un-stored data directories
+corpora
+embeddings
+results
