@@ -17,7 +17,7 @@ include_everywhere("Bias.jl")
 PRINT_EVERY = 1_000
 const DEFAULT_EMBEDDING = "embeddings/vectors-C0-V20-W8-D25-R0.05-E15-S1.bin"
 const DEFAULT_CORPUS = "corpora/simplewikiselect.txt"
-const DEFAULT_OUTPUT = "results/diff_bias-C0-V20-W8-D25-R0.05-E15-S1.csv"
+const DEFAULT_OUTPUT = "results/test.csv"
 
 """Parses command line arguments and returns a Dict with arguments or
 default values."""
@@ -27,6 +27,8 @@ function parse_commandline()
     # list of valid arguments for each type of valid argument
     options = [
                "wordset",
+               "first",
+               "last"
               ]
     flags = []
     # positional arguments are tuples of the argument name and the
@@ -59,6 +61,10 @@ function parse_commandline()
                 parsed_args[option] = true
                 continue
             end
+            throw(ErrorException("Unrecognized argument: $arg"))
+        end
+        if startswith(arg, "-")
+            throw(ErrorException("Only longform -- arguments accepted."))
         end
         push!(positionals, arg)
     end
@@ -69,6 +75,7 @@ function parse_commandline()
             parsed_args[positional[i][1]] = positional[i][2]
         end
     end
+    print(parsed_args)
     return parsed_args
 end
 
@@ -84,7 +91,7 @@ function pre_compute(M, X, word_indices)
 end
 
 
-function make_job_list(corpus, first=1, last=2^62)
+function make_job_list(corpus; first=1, last=2^62)
     # Eventually should allow prcessing subsets
     return first:min(corpus.num_documents, last)
 end
@@ -241,7 +248,17 @@ function main()
     # Setup for parallel computations
     jobs = RemoteChannel(()->Channel{Tuple{Int64, String}}(100))
     results = RemoteChannel(()->Channel{Tuple}(100))
-    job_list = make_job_list(corpus)
+    if "first" in keys(parsed_args)
+        first = parse(Int64, parsed_args["first"])
+    else
+        first = 1
+    end
+    if "last" in keys(parsed_args)
+        last = parse(Int64, parsed_args["last"])
+    else
+        last = 2^62
+    end
+    job_list = make_job_list(corpus, first=first, last=last)
 
     # Asynchronously estimate differential biases for each document
     # Output results to out_file as subprocesses complete
