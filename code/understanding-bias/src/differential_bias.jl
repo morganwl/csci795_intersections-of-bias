@@ -215,7 +215,8 @@ function main()
     else
         wordsets = keys(Bias.WEAT_WORD_SETS)
     end
-    weat_idx_sets, all_weat_indices, wordsets= build_word_sets(M.vocab, wordsets)
+    weat_idx_sets, all_weat_indices, wordsets = build_word_sets(M.vocab,
+                                                                wordsets)
     
     # Print effect sizes and p-values for unperturbed embedding
     println('.')
