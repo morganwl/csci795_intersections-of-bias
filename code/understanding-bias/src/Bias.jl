@@ -7,7 +7,9 @@ using Random
 using SparseArrays
 
 # include("word_sets.jl")
-const WEAT_WORD_SETS_JSON = "../../data/weat-word-sets.json"
+const WEAT_WORD_SETS_JSON = joinpath(@__DIR__,
+                                     "../../../data/weat-word-sets.json")
+# const WEAT_WORD_SETS_JSON = "../../data/weat-word-sets.json"
 
 struct VocabNotFoundException <: Exception end
 
@@ -21,30 +23,49 @@ end
 WEAT_WORD_SETS = read_word_sets()
 export WEAT_WORD_SETS
 
-function words2indices(words, vocab)
-    """Given a list of words and a vocab array, returns the index of
-    each word in the vocab array."""
-    indices = []
+function words2pairs(words, vocab)
+    """Given a list of words and a vocab array, returns a list of
+    (count, index) pairs, sorted in descending order."""
+    word_pairs = []
     for w in words
-        try
-            push!(indices,
-                    vocab[lowercase(w)].index)
-        catch e
-            if isa(e, KeyError)
-                println("Warning: $w not found in vocab.")
-            end
-            throw(e)
+        w = lowercase(w) 
+        if w in keys(vocab)
+            push!(word_pairs, (vocab[w].count, vocab[w].index))
+        else
+            println("Warning: $w not found in vocab.")
+            push!(word_pairs, (0, -1))
         end
     end
-    return indices
+    return sort(word_pairs, rev=true)
+end
+
+function words2indices(words_1, words_2, vocab)
+    """Returns two lists of indices for a pair of vocab sets. If words
+    from one set are missing, removes the least common word in the
+    corresponding set until sets are of equal length."""
+    indices_1 = []
+    indices_2 = []
+    pairs_1 = words2pairs(words_1, vocab)
+    pairs_2 = words2pairs(words_2, vocab)
+    for ((c1, i1), (c2, i2)) in zip(pairs_1, pairs_2)
+        if c1 == 0 || c2 == 0
+            break
+        end
+        push!(indices_1, i1)
+        push!(indices_2, i2)
+    end
+    return indices_1, indices_2
 end
 
 
 function get_weat_idx_set(word_set::Dict, vocab::Dict)
-    return (S=words2indices(word_set["targ1"]["vocab"], vocab),
-            T=words2indices(word_set["targ2"]["vocab"], vocab),
-            A=words2indices(word_set["attr1"]["vocab"], vocab),
-            B=words2indices(word_set["attr2"]["vocab"], vocab))
+    S = word_set["targ1"]["vocab"]
+    T = word_set["targ2"]["vocab"]
+    A = word_set["attr1"]["vocab"]
+    B = word_set["attr2"]["vocab"]
+    S, T = words2indices(S, T, vocab)
+    A, B = words2indices(A, B, vocab)
+    return (S=S, T=T, A=A, B=B)
 end
 
 
