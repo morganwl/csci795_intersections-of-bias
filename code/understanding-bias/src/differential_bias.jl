@@ -177,19 +177,15 @@ function build_word_sets(vocab, wordsets)
     weat_idx_sets = []
     wordsets_actual = []
     for word_set in wordsets
-        try
-            push!(weat_idx_sets,
-                    Bias.get_weat_idx_set(Bias.WEAT_WORD_SETS[word_set],
-                                         vocab))
-            push!(wordsets_actual, word_set)
-        catch e
-            if isa(e, KeyError)
-                println("Ignoring $word_set because of missing vocab.")
-            else
-                throw(e)
-            end
+        idx_set = Bias.get_weat_idx_set(Bias.WEAT_WORD_SETS[word_set], vocab)
+        if minimum(length, idx_set) < 1
+            println("Ignoring $word_set because of missing vocab.")
+            continue
         end
+        push!(weat_idx_sets, idx_set)
+        push!(wordsets_actual, word_set)
     end
+    #println(weat_idx_sets[1])
     all_weat_indices = unique([i for set in weat_idx_sets for inds in
                                set for i in inds])
     return weat_idx_sets, all_weat_indices, wordsets_actual
