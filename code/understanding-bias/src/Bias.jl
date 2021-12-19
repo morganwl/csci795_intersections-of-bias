@@ -9,10 +9,10 @@ using SparseArrays
 # include("word_sets.jl")
 const WEAT_WORD_SETS_JSON = joinpath(@__DIR__,
                                      "../../../data/weat-word-sets.json")
-# const WEAT_WORD_SETS_JSON = "../../data/weat-word-sets.json"
 
 struct VocabNotFoundException <: Exception end
 
+"""Reads wordsets in from a JSON file."""
 function read_word_sets()
     f = open(WEAT_WORD_SETS_JSON, "r")
     weat_word_sets = JSON.parse(f)
@@ -23,9 +23,9 @@ end
 WEAT_WORD_SETS = read_word_sets()
 export WEAT_WORD_SETS
 
+"""Given a list of words and a vocab array, returns a list of
+(count, index) pairs, sorted in descending order."""
 function words2pairs(words, vocab)
-    """Given a list of words and a vocab array, returns a list of
-    (count, index) pairs, sorted in descending order."""
     word_pairs = []
     for w in words
         w = lowercase(w) 
@@ -39,10 +39,10 @@ function words2pairs(words, vocab)
     return sort(word_pairs, rev=true)
 end
 
+"""Returns two lists of indices for a pair of vocab sets. If words
+from one set are missing, removes the least common word in the
+corresponding set until sets are of equal length."""
 function words2indices(words_1, words_2, vocab)
-    """Returns two lists of indices for a pair of vocab sets. If words
-    from one set are missing, removes the least common word in the
-    corresponding set until sets are of equal length."""
     indices_1 = []
     indices_2 = []
     pairs_1 = words2pairs(words_1, vocab)
@@ -58,6 +58,7 @@ function words2indices(words_1, words_2, vocab)
 end
 
 
+"""Returns a named tuple of indices for words in a single WEAT set."""
 function get_weat_idx_set(word_set::Dict, vocab::Dict)
     S = word_set["targ1"]["vocab"]
     T = word_set["targ2"]["vocab"]

@@ -25,15 +25,18 @@ def sample_corpus(corpus, metadata, ratio):
     new_index = []
     num_documents = 0
     num_words = 0
+    num_bytes = 0
     with open(corpus) as corpus_file:
         for line, meta in zip(corpus_file, metadata['index']):
             if in_subset(meta['line'], ratio):
                 meta = meta.copy()
                 meta['line'] = len(new_corpus)
+                meta['byte'] = num_bytes
                 new_corpus.append(line)
                 new_index.append(meta)
                 num_documents += 1
                 num_words += len(line.split(' '))
+                num_bytes += len(line.encode('utf-8'))
     new_metadata = {
         'num_documents': num_documents,
         'num_words': num_words,
