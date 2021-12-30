@@ -7,12 +7,12 @@
 
 | Date   | Task|
 |--------|-----|
-|10/26/21|Complete literature review                                   |
+|10/26/21|~~Complete literature review~~                               |
 |        |~~Configure WEAT program and perform dry run~~               |
 |        |Evaluate results of estimation algorithm using tests in G+G  |
-|11/02/21|Choose bias features and corresponding tests                 |
-|        |Modify algorithm to perform and record new tests             |
-|        |Begin running bias tests and estimation algorithms           |
+|11/02/21|~~Choose bias features and corresponding tests~~             |
+|        |~~Modify algorithm to perform and record new tests~~         |
+|        |~~Begin running bias tests and estimation algorithms~~       |
 |        |~~Identify data set(s) to use~~                              |
 |11/09/21|Continue running bias tests and estimation algorithms        |
 |        |~~Explore bias data~~                                        |
